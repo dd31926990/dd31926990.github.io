@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb数据库">
+<meta property="og:url" content="http://yoursite.com/2018/02/09/mongodb数据库/index.html">
+<meta property="og:site_name" content="雨夜">
+<meta property="og:description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-22T12:16:38.201Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb数据库">
+<meta name="twitter:description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/09/mongodb数据库/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>mongodb数据库 | 雨夜</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">雨夜</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Accueil</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/mongodb数据库/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="雨夜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雨夜">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mongodb数据库
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posté le</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-02-09 17:36:15" itemprop="dateCreated datePublished" datetime="2018-02-09T17:36:15+08:00">2018-02-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-22 20:16:38" itemprop="dateModified" datetime="2019-01-22T20:16:38+08:00">2019-01-22</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="mongodb插入数据"><a href="#mongodb插入数据" class="headerlink" title="mongodb插入数据"></a>mongodb插入数据</h3><ul>
+<li>db.collecion.insert({}) 插入数据，<code>_id</code>存在就报错  </li>
+<li>db.collection.save({}) 插入数据，<code>_id</code>存在会更新</li>
+</ul>
+<h3 id="mongodb的更新操作"><a href="#mongodb的更新操作" class="headerlink" title="mongodb的更新操作"></a>mongodb的更新操作</h3><ul>
+<li><code>db.test1000.update({name:&quot;xiaowang&quot;},{name:&quot;xiaozhao&quot;})</code></li>
+<li>把name为xiaowang的数据替换为<code>{name:&quot;xiaozhao&quot;}</code></li>
+<li><code>db.test1000.update({name:&quot;xiaohong&quot;},{$set:{name:&quot;xiaozhang&quot;}})</code></li>
+<li>把name为xiaowang的数据name的值更新为xiaozhang</li>
+<li><code>db.test1000.update({name:&quot;xiaozhang&quot;},{$set:{name:&quot;xiaohong&quot;}},{multi:true})</code></li>
+<li><code>{multi:true}</code>达到更新多条的目的</li>
+</ul>
+<h3 id="mongodb删除"><a href="#mongodb删除" class="headerlink" title="mongodb删除"></a>mongodb删除</h3><ul>
+<li><code>db.test1000.remove({name:&quot;xiaohong&quot;},{justOne:true})</code></li>
+<li>默认情况会删除所有满足条件的数据，<code>{justOne:true}</code>能达到只删除一条的效果</li>
+</ul>
+<h3 id="mongodb的count方法"><a href="#mongodb的count方法" class="headerlink" title="mongodb的count方法"></a>mongodb的count方法</h3><ul>
+<li><code>db.collection.find({条件}).count()</code></li>
+<li><code>db.collection.count({})</code></li>
+</ul>
+<h3 id="mongodb的投影"><a href="#mongodb的投影" class="headerlink" title="mongodb的投影"></a>mongodb的投影</h3><ul>
+<li>投影:选择返回结果的字段</li>
+<li><code>db.collection.find({条件},{name:1,_id:0})</code><ul>
+<li>1.<code>_id</code>默认会显示，置为0不显示</li>
+<li>2.出了<code>_id</code>之外的其他字段，如果不显示，不写，不能写为0<h3 id="group的注意点"><a href="#group的注意点" class="headerlink" title="$group的注意点"></a>$group的注意点</h3></li>
+</ul>
+</li>
+<li><code>$group</code>对应的字典中有几个键，结果中就有几个键</li>
+<li>分组依据需要放到<code>_id</code>后面</li>
+<li>取不同的字段的值需要使用$,<code>$gender</code>,<code>$age</code></li>
+<li>取字典嵌套的字典中的值的时候<code>$_id.country</code></li>
+<li>能够同时按照多个键进行分组<code>{$group:{_id:{country:&quot;$country&quot;,province:&quot;$province&quot;}}}</code><ul>
+<li>结果是：<code>{_id:{country:&quot;&quot;,province:&quot;&quot;}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="编辑器写mongodb语句"><a href="#编辑器写mongodb语句" class="headerlink" title="编辑器写mongodb语句"></a>编辑器写mongodb语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">db.stu.find(</span><br><span class="line">  &#123;$or:[&#123;age:&#123;$gte:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;桃花岛&quot;,&quot;华⼭&quot;]&#125;&#125;]&#125;</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">#按照gender进行分组，获取不同组数据的个数和平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;,avg_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;gender:&quot;$_id&quot;,count:1,avg_age:&quot;$avg_age&quot;,_id:0&#125;&#125;</span><br><span class="line">  )</span><br><span class="line"># 按照hometown进行分组，获取不同组的平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$hometown&quot;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#使用$group统计整个文档</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:null,count:&#123;$sum:1&#125;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#选择年龄大于20的学生，观察男性和女性有多少人</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$match:&#123;$or:[&#123;age:&#123;$gt:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;蒙古&quot;,&quot;⼤理&quot;]&#125;&#125;]&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;_id:0,gender:&quot;$_id&quot;,count:1&#125;&#125;</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">#page37页练习</span><br><span class="line">db.tv3.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$country&quot;,province:&quot;$province&quot;,userid:&quot;$userid&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;&#125;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;,count:1,_id:0&#125;&#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/04/re-xpath-lxml/" rel="next" title="re_xpath_lxml">
+                <i class="fa fa-chevron-left"></i> re_xpath_lxml
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/10/scrapy基本操作/" rel="prev" title="scrapy基本操作">
+                scrapy基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table Des Matières
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Ensemble
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">雨夜</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">articles</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb插入数据"><span class="nav-number">1.</span> <span class="nav-text">mongodb插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb的更新操作"><span class="nav-number">2.</span> <span class="nav-text">mongodb的更新操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb删除"><span class="nav-number">3.</span> <span class="nav-text">mongodb删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb的count方法"><span class="nav-number">4.</span> <span class="nav-text">mongodb的count方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb的投影"><span class="nav-number">5.</span> <span class="nav-text">mongodb的投影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#group的注意点"><span class="nav-number">6.</span> <span class="nav-text">$group的注意点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器写mongodb语句"><span class="nav-number">7.</span> <span class="nav-text">编辑器写mongodb语句</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">雨夜</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Thème – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
