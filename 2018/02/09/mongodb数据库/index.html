@@ -96,24 +96,24 @@
 
 
 
-  <meta name="description" content="scrapy数据流程 调度器—》request—》引擎—》下载中间件—》下载器 下载器发送请求，获取resposne，—》response—&amp;gt;下载中间件—》引擎—》爬虫中间件—》spider spider 提取数据—》引擎—》pipeline spider 提取url地址–》构造request—》爬虫中间件—》引擎—》调度器  scrapy如何发送请求，能够携带什么参数 scrapy.Req">
+  <meta name="description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
 <meta property="og:type" content="article">
-<meta property="og:title" content="雨夜">
-<meta property="og:url" content="http://yoursite.com/2019/01/22/scrapy基本操作/index.html">
+<meta property="og:title" content="mongodb数据库">
+<meta property="og:url" content="http://yoursite.com/2018/02/09/mongodb数据库/index.html">
 <meta property="og:site_name" content="雨夜">
-<meta property="og:description" content="scrapy数据流程 调度器—》request—》引擎—》下载中间件—》下载器 下载器发送请求，获取resposne，—》response—&amp;gt;下载中间件—》引擎—》爬虫中间件—》spider spider 提取数据—》引擎—》pipeline spider 提取url地址–》构造request—》爬虫中间件—》引擎—》调度器  scrapy如何发送请求，能够携带什么参数 scrapy.Req">
+<meta property="og:description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-01-25T15:13:30.000Z">
+<meta property="og:updated_time" content="2019-01-22T12:16:38.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="雨夜">
-<meta name="twitter:description" content="scrapy数据流程 调度器—》request—》引擎—》下载中间件—》下载器 下载器发送请求，获取resposne，—》response—&amp;gt;下载中间件—》引擎—》爬虫中间件—》spider spider 提取数据—》引擎—》pipeline spider 提取url地址–》构造request—》爬虫中间件—》引擎—》调度器  scrapy如何发送请求，能够携带什么参数 scrapy.Req">
+<meta name="twitter:title" content="mongodb数据库">
+<meta name="twitter:description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/22/scrapy基本操作/">
+  <link rel="canonical" href="http://yoursite.com/2018/02/09/mongodb数据库/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title> | 雨夜</title>
+  <title>mongodb数据库 | 雨夜</title>
   
 
 
@@ -288,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/scrapy基本操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/mongodb数据库/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="雨夜">
@@ -305,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">mongodb数据库
 
               
             
@@ -331,7 +331,7 @@
                 
               
 
-              <time title="Post created: 2019-01-22 20:11:35" itemprop="dateCreated datePublished" datetime="2019-01-22T20:11:35+08:00">2019-01-22</time>
+              <time title="Post created: 2018-02-09 17:36:15" itemprop="dateCreated datePublished" datetime="2018-02-09T17:36:15+08:00">2018-02-09</time>
             
 
             
@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-01-25 23:13:30" itemprop="dateModified" datetime="2018-01-25T23:13:30+08:00">2018-01-25</time>
+                <time title="Updated at: 2019-01-22 20:16:38" itemprop="dateModified" datetime="2019-01-22T20:16:38+08:00">2019-01-22</time>
               
             
           </span>
@@ -382,30 +382,43 @@
       
 
       
-        <h3 id="scrapy数据流程"><a href="#scrapy数据流程" class="headerlink" title="scrapy数据流程"></a>scrapy数据流程</h3><ul>
-<li>调度器—》request—》引擎—》下载中间件—》下载器</li>
-<li>下载器发送请求，获取resposne，—》response—&gt;下载中间件—》引擎—》爬虫中间件—》spider</li>
-<li>spider 提取数据—》引擎—》pipeline</li>
-<li>spider 提取url地址–》构造request—》爬虫中间件—》引擎—》调度器</li>
+        <h3 id="mongodb插入数据"><a href="#mongodb插入数据" class="headerlink" title="mongodb插入数据"></a>mongodb插入数据</h3><ul>
+<li>db.collecion.insert({}) 插入数据，<code>_id</code>存在就报错  </li>
+<li>db.collection.save({}) 插入数据，<code>_id</code>存在会更新</li>
 </ul>
-<h3 id="scrapy如何发送请求，能够携带什么参数"><a href="#scrapy如何发送请求，能够携带什么参数" class="headerlink" title="scrapy如何发送请求，能够携带什么参数"></a>scrapy如何发送请求，能够携带什么参数</h3><ul>
-<li>scrapy.Request(url,callback,meta,dont_filter)</li>
-<li>dont_filter=True 表示请求过的url地址还会继续被请求</li>
+<h3 id="mongodb的更新操作"><a href="#mongodb的更新操作" class="headerlink" title="mongodb的更新操作"></a>mongodb的更新操作</h3><ul>
+<li><code>db.test1000.update({name:&quot;xiaowang&quot;},{name:&quot;xiaozhao&quot;})</code></li>
+<li>把name为xiaowang的数据替换为<code>{name:&quot;xiaozhao&quot;}</code></li>
+<li><code>db.test1000.update({name:&quot;xiaohong&quot;},{$set:{name:&quot;xiaozhang&quot;}})</code></li>
+<li>把name为xiaowang的数据name的值更新为xiaozhang</li>
+<li><code>db.test1000.update({name:&quot;xiaozhang&quot;},{$set:{name:&quot;xiaohong&quot;}},{multi:true})</code></li>
+<li><code>{multi:true}</code>达到更新多条的目的</li>
 </ul>
-<h3 id="scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做"><a href="#scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做" class="headerlink" title="scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做"></a>scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做</h3><ul>
-<li>meta是个字典类型，meta = {“item”:item}</li>
-<li>response.meta[“item”]</li>
+<h3 id="mongodb删除"><a href="#mongodb删除" class="headerlink" title="mongodb删除"></a>mongodb删除</h3><ul>
+<li><code>db.test1000.remove({name:&quot;xiaohong&quot;},{justOne:true})</code></li>
+<li>默认情况会删除所有满足条件的数据，<code>{justOne:true}</code>能达到只删除一条的效果</li>
 </ul>
-<h3 id="scrapy中Item是什么，如何使用"><a href="#scrapy中Item是什么，如何使用" class="headerlink" title="scrapy中Item是什么，如何使用"></a>scrapy中Item是什么，如何使用</h3><ul>
-<li>Item 类，继承自scarpy.Item,name=scrapy.Field()</li>
-<li>Item 定义那些字段我们需要抓取</li>
-<li>使用和字典一样</li>
-<li>在mongodb中插入数据的时候 dict(item)</li>
+<h3 id="mongodb的count方法"><a href="#mongodb的count方法" class="headerlink" title="mongodb的count方法"></a>mongodb的count方法</h3><ul>
+<li><code>db.collection.find({条件}).count()</code></li>
+<li><code>db.collection.count({})</code></li>
 </ul>
-<h3 id="pipeline中open-spider和close-spider是什么"><a href="#pipeline中open-spider和close-spider是什么" class="headerlink" title="pipeline中open_spider和close_spider是什么"></a>pipeline中open_spider和close_spider是什么</h3><ul>
-<li>open_spdier 爬虫开启执行一次，只有一次</li>
-<li>close_spider 爬虫关闭的时候执行一次，只有一次</li>
+<h3 id="mongodb的投影"><a href="#mongodb的投影" class="headerlink" title="mongodb的投影"></a>mongodb的投影</h3><ul>
+<li>投影:选择返回结果的字段</li>
+<li><code>db.collection.find({条件},{name:1,_id:0})</code><ul>
+<li>1.<code>_id</code>默认会显示，置为0不显示</li>
+<li>2.出了<code>_id</code>之外的其他字段，如果不显示，不写，不能写为0<h3 id="group的注意点"><a href="#group的注意点" class="headerlink" title="$group的注意点"></a>$group的注意点</h3></li>
 </ul>
+</li>
+<li><code>$group</code>对应的字典中有几个键，结果中就有几个键</li>
+<li>分组依据需要放到<code>_id</code>后面</li>
+<li>取不同的字段的值需要使用$,<code>$gender</code>,<code>$age</code></li>
+<li>取字典嵌套的字典中的值的时候<code>$_id.country</code></li>
+<li>能够同时按照多个键进行分组<code>{$group:{_id:{country:&quot;$country&quot;,province:&quot;$province&quot;}}}</code><ul>
+<li>结果是：<code>{_id:{country:&quot;&quot;,province:&quot;&quot;}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="编辑器写mongodb语句"><a href="#编辑器写mongodb语句" class="headerlink" title="编辑器写mongodb语句"></a>编辑器写mongodb语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">db.stu.find(</span><br><span class="line">  &#123;$or:[&#123;age:&#123;$gte:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;桃花岛&quot;,&quot;华⼭&quot;]&#125;&#125;]&#125;</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">#按照gender进行分组，获取不同组数据的个数和平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;,avg_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;gender:&quot;$_id&quot;,count:1,avg_age:&quot;$avg_age&quot;,_id:0&#125;&#125;</span><br><span class="line">  )</span><br><span class="line"># 按照hometown进行分组，获取不同组的平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$hometown&quot;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#使用$group统计整个文档</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:null,count:&#123;$sum:1&#125;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#选择年龄大于20的学生，观察男性和女性有多少人</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$match:&#123;$or:[&#123;age:&#123;$gt:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;蒙古&quot;,&quot;⼤理&quot;]&#125;&#125;]&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;_id:0,gender:&quot;$_id&quot;,count:1&#125;&#125;</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">#page37页练习</span><br><span class="line">db.tv3.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$country&quot;,province:&quot;$province&quot;,userid:&quot;$userid&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;&#125;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;,count:1,_id:0&#125;&#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -436,15 +449,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/22/mongodb数据库/" rel="next" title="mongodb数据库">
-                <i class="fa fa-chevron-left"></i> mongodb数据库
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/10/scrapy基本操作/" rel="prev" title="scrapy基本操作">
+                scrapy基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -554,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#scrapy数据流程"><span class="nav-number">1.</span> <span class="nav-text">scrapy数据流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrapy如何发送请求，能够携带什么参数"><span class="nav-number">2.</span> <span class="nav-text">scrapy如何发送请求，能够携带什么参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做"><span class="nav-number">3.</span> <span class="nav-text">scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrapy中Item是什么，如何使用"><span class="nav-number">4.</span> <span class="nav-text">scrapy中Item是什么，如何使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pipeline中open-spider和close-spider是什么"><span class="nav-number">5.</span> <span class="nav-text">pipeline中open_spider和close_spider是什么</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb插入数据"><span class="nav-number">1.</span> <span class="nav-text">mongodb插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb的更新操作"><span class="nav-number">2.</span> <span class="nav-text">mongodb的更新操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb删除"><span class="nav-number">3.</span> <span class="nav-text">mongodb删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb的count方法"><span class="nav-number">4.</span> <span class="nav-text">mongodb的count方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb的投影"><span class="nav-number">5.</span> <span class="nav-text">mongodb的投影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#group的注意点"><span class="nav-number">6.</span> <span class="nav-text">$group的注意点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器写mongodb语句"><span class="nav-number">7.</span> <span class="nav-text">编辑器写mongodb语句</span></a></li></ol></div>
             
 
           </div>
