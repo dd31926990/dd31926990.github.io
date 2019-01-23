@@ -97,13 +97,14 @@
 
 
   <meta name="description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
+<meta name="keywords" content="mongodb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mongodb数据库">
 <meta property="og:url" content="http://yoursite.com/2018/02/09/mongodb数据库/index.html">
 <meta property="og:site_name" content="雨夜">
 <meta property="og:description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-22T12:16:38.201Z">
+<meta property="og:updated_time" content="2019-01-23T07:09:26.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongodb数据库">
 <meta name="twitter:description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
@@ -219,7 +220,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
 
   </li>
         
@@ -236,7 +237,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
 
   </li>
 
@@ -324,14 +325,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-02-09 17:36:15" itemprop="dateCreated datePublished" datetime="2018-02-09T17:36:15+08:00">2018-02-09</time>
+              <time title="Post created: 2018-02-09 17:36:15" itemprop="dateCreated datePublished" datetime="2018-02-09T17:36:15+08:00">2018-02-09</time>
             
 
             
@@ -348,11 +349,29 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-22 20:16:38" itemprop="dateModified" datetime="2019-01-22T20:16:38+08:00">2019-01-22</time>
+                <time title="Updated at: 2019-01-23 15:09:26" itemprop="dateModified" datetime="2019-01-23T15:09:26+08:00">2019-01-23</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -418,7 +437,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="编辑器写mongodb语句"><a href="#编辑器写mongodb语句" class="headerlink" title="编辑器写mongodb语句"></a>编辑器写mongodb语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">db.stu.find(</span><br><span class="line">  &#123;$or:[&#123;age:&#123;$gte:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;桃花岛&quot;,&quot;华⼭&quot;]&#125;&#125;]&#125;</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">#按照gender进行分组，获取不同组数据的个数和平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;,avg_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;gender:&quot;$_id&quot;,count:1,avg_age:&quot;$avg_age&quot;,_id:0&#125;&#125;</span><br><span class="line">  )</span><br><span class="line"># 按照hometown进行分组，获取不同组的平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$hometown&quot;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#使用$group统计整个文档</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:null,count:&#123;$sum:1&#125;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#选择年龄大于20的学生，观察男性和女性有多少人</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$match:&#123;$or:[&#123;age:&#123;$gt:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;蒙古&quot;,&quot;⼤理&quot;]&#125;&#125;]&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;_id:0,gender:&quot;$_id&quot;,count:1&#125;&#125;</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">#page37页练习</span><br><span class="line">db.tv3.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$country&quot;,province:&quot;$province&quot;,userid:&quot;$userid&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;&#125;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;,count:1,_id:0&#125;&#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<h3 id="编辑器写mongodb语句"><a href="#编辑器写mongodb语句" class="headerlink" title="编辑器写mongodb语句"></a>编辑器写mongodb语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">db.stu.find(</span><br><span class="line">  &#123;$or:[&#123;age:&#123;$gte:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;桃花岛&quot;,&quot;华⼭&quot;]&#125;&#125;]&#125;</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">#按照gender进行分组，获取不同组数据的个数和平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;,avg_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;gender:&quot;$_id&quot;,count:1,avg_age:&quot;$avg_age&quot;,_id:0&#125;&#125;</span><br><span class="line">  )</span><br><span class="line"># 按照hometown进行分组，获取不同组的平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$hometown&quot;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#使用$group统计整个文档</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:null,count:&#123;$sum:1&#125;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#选择年龄大于20的学生，观察男性和女性有多少人</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$match:&#123;$or:[&#123;age:&#123;$gt:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;蒙古&quot;,&quot;⼤理&quot;]&#125;&#125;]&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;_id:0,gender:&quot;$_id&quot;,count:1&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">db.tv3.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$country&quot;,province:&quot;$province&quot;,userid:&quot;$userid&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;&#125;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;,count:1,_id:0&#125;&#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -439,6 +458,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mongodb/" rel="tag"># mongodb</a>
+          
+        </div>
       
 
       
@@ -508,10 +533,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -532,13 +557,39 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -603,7 +654,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
