@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,14 +72,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -230,40 +230,6 @@
         
         
           
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
     
@@ -282,6 +248,9 @@
       
     </ul>
   
+
+  
+    
 
   
 
@@ -303,9 +272,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -375,24 +341,28 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-22 20:16:00" itemprop="dateModified" datetime="2019-01-22T20:16:00+08:00">2019-01-22</time>
+              
+            
           </span>
 
           
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2018/06/10/scrapy基本操作/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/06/10/scrapy基本操作/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -420,21 +390,32 @@
       
         
           
-            <p>
-              scrapy数据流程
-调度器—》request—》引擎—》下载中间件—》下载器
-下载器发送请求，获取resposne，—》response—&gt;下载中间件—
-              ...
-            </p>
-          <!--noindex-->
+            <h3 id="scrapy数据流程"><a href="#scrapy数据流程" class="headerlink" title="scrapy数据流程"></a>scrapy数据流程</h3><ul>
+<li>调度器—》request—》引擎—》下载中间件—》下载器</li>
+<li>下载器发送请求，获取resposne，—》response—&gt;下载中间件—》引擎—》爬虫中间件—》spider</li>
+<li>spider 提取数据—》引擎—》pipeline</li>
+<li>spider 提取url地址–》构造request—》爬虫中间件—》引擎—》调度器</li>
+</ul>
+<h3 id="scrapy如何发送请求，能够携带什么参数"><a href="#scrapy如何发送请求，能够携带什么参数" class="headerlink" title="scrapy如何发送请求，能够携带什么参数"></a>scrapy如何发送请求，能够携带什么参数</h3><ul>
+<li>scrapy.Request(url,callback,meta,dont_filter)</li>
+<li>dont_filter=True 表示请求过的url地址还会继续被请求</li>
+</ul>
+<h3 id="scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做"><a href="#scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做" class="headerlink" title="scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做"></a>scrapy如何把数据从一个解析函数传递到另一个，为什么需要这样做</h3><ul>
+<li>meta是个字典类型，meta = {“item”:item}</li>
+<li>response.meta[“item”]</li>
+</ul>
+<h3 id="scrapy中Item是什么，如何使用"><a href="#scrapy中Item是什么，如何使用" class="headerlink" title="scrapy中Item是什么，如何使用"></a>scrapy中Item是什么，如何使用</h3><ul>
+<li>Item 类，继承自scarpy.Item,name=scrapy.Field()</li>
+<li>Item 定义那些字段我们需要抓取</li>
+<li>使用和字典一样</li>
+<li>在mongodb中插入数据的时候 dict(item)</li>
+</ul>
+<h3 id="pipeline中open-spider和close-spider是什么"><a href="#pipeline中open-spider和close-spider是什么" class="headerlink" title="pipeline中open_spider和close_spider是什么"></a>pipeline中open_spider和close_spider是什么</h3><ul>
+<li>open_spdier 爬虫开启执行一次，只有一次</li>
+<li>close_spider 爬虫关闭的时候执行一次，只有一次</li>
+</ul>
+
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/06/10/scrapy基本操作/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -538,6 +519,22 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-23 15:17:51" itemprop="dateModified" datetime="2019-01-23T15:17:51+08:00">2019-01-23</time>
+              
+            
           </span>
 
           
@@ -562,18 +559,6 @@
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2018/02/09/mongodb数据库/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/02/09/mongodb数据库/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -601,21 +586,45 @@
       
         
           
-            <p>
-              mongodb插入数据
-db.collecion.insert({}) 插入数据，_id存在就报错  
-db.collection.save({}) 插入数据，
-              ...
-            </p>
-          <!--noindex-->
+            <h3 id="mongodb插入数据"><a href="#mongodb插入数据" class="headerlink" title="mongodb插入数据"></a>mongodb插入数据</h3><ul>
+<li>db.collecion.insert({}) 插入数据，<code>_id</code>存在就报错  </li>
+<li>db.collection.save({}) 插入数据，<code>_id</code>存在会更新</li>
+</ul>
+<h3 id="mongodb的更新操作"><a href="#mongodb的更新操作" class="headerlink" title="mongodb的更新操作"></a>mongodb的更新操作</h3><ul>
+<li><code>db.test1000.update({name:&quot;xiaowang&quot;},{name:&quot;xiaozhao&quot;})</code></li>
+<li>把name为xiaowang的数据替换为<code>{name:&quot;xiaozhao&quot;}</code></li>
+<li><code>db.test1000.update({name:&quot;xiaohong&quot;},{$set:{name:&quot;xiaozhang&quot;}})</code></li>
+<li>把name为xiaowang的数据name的值更新为xiaozhang</li>
+<li><code>db.test1000.update({name:&quot;xiaozhang&quot;},{$set:{name:&quot;xiaohong&quot;}},{multi:true})</code></li>
+<li><code>{multi:true}</code>达到更新多条的目的</li>
+</ul>
+<h3 id="mongodb删除"><a href="#mongodb删除" class="headerlink" title="mongodb删除"></a>mongodb删除</h3><ul>
+<li><code>db.test1000.remove({name:&quot;xiaohong&quot;},{justOne:true})</code></li>
+<li>默认情况会删除所有满足条件的数据，<code>{justOne:true}</code>能达到只删除一条的效果</li>
+</ul>
+<h3 id="mongodb的count方法"><a href="#mongodb的count方法" class="headerlink" title="mongodb的count方法"></a>mongodb的count方法</h3><ul>
+<li><code>db.collection.find({条件}).count()</code></li>
+<li><code>db.collection.count({})</code></li>
+</ul>
+<h3 id="mongodb的投影"><a href="#mongodb的投影" class="headerlink" title="mongodb的投影"></a>mongodb的投影</h3><ul>
+<li>投影:选择返回结果的字段</li>
+<li><code>db.collection.find({条件},{name:1,_id:0})</code><ul>
+<li>1.<code>_id</code>默认会显示，置为0不显示</li>
+<li>2.出了<code>_id</code>之外的其他字段，如果不显示，不写，不能写为0<h3 id="group的注意点"><a href="#group的注意点" class="headerlink" title="$group的注意点"></a>$group的注意点</h3></li>
+</ul>
+</li>
+<li><code>$group</code>对应的字典中有几个键，结果中就有几个键</li>
+<li>分组依据需要放到<code>_id</code>后面</li>
+<li>取不同的字段的值需要使用$,<code>$gender</code>,<code>$age</code></li>
+<li>取字典嵌套的字典中的值的时候<code>$_id.country</code></li>
+<li>能够同时按照多个键进行分组<code>{$group:{_id:{country:&quot;$country&quot;,province:&quot;$province&quot;}}}</code><ul>
+<li>结果是：<code>{_id:{country:&quot;&quot;,province:&quot;&quot;}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="编辑器写mongodb语句"><a href="#编辑器写mongodb语句" class="headerlink" title="编辑器写mongodb语句"></a>编辑器写mongodb语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">db.stu.find(</span><br><span class="line">  &#123;$or:[&#123;age:&#123;$gte:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;桃花岛&quot;,&quot;华⼭&quot;]&#125;&#125;]&#125;</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">#按照gender进行分组，获取不同组数据的个数和平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;,avg_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;gender:&quot;$_id&quot;,count:1,avg_age:&quot;$avg_age&quot;,_id:0&#125;&#125;</span><br><span class="line">  )</span><br><span class="line"># 按照hometown进行分组，获取不同组的平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$hometown&quot;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#使用$group统计整个文档</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:null,count:&#123;$sum:1&#125;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#选择年龄大于20的学生，观察男性和女性有多少人</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$match:&#123;$or:[&#123;age:&#123;$gt:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;蒙古&quot;,&quot;⼤理&quot;]&#125;&#125;]&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;_id:0,gender:&quot;$_id&quot;,count:1&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">db.tv3.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$country&quot;,province:&quot;$province&quot;,userid:&quot;$userid&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;&#125;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;,count:1,_id:0&#125;&#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/02/09/mongodb数据库/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -719,6 +728,22 @@ db.collection.save({}) 插入数据，
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-23 15:21:43" itemprop="dateModified" datetime="2019-01-23T15:21:43+08:00">2019-01-23</time>
+              
+            
           </span>
 
           
@@ -743,18 +768,6 @@ db.collection.save({}) 插入数据，
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2017/11/04/re-xpath-lxml/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/11/04/re-xpath-lxml/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -782,20 +795,55 @@ db.collection.save({}) 插入数据，
       
         
           
-            <p>
-              正则使用的注意点
-re.findall(&quot;a(.*?)b&quot;,&quot;str&quot;),能够返回括号中的内容,括号前后的内容起到定位和
-              ...
-            </p>
-          <!--noindex-->
+            <h3 id="正则使用的注意点"><a href="#正则使用的注意点" class="headerlink" title="正则使用的注意点"></a>正则使用的注意点</h3><ul>
+<li><p><code>re.findall(&quot;a(.*?)b&quot;,&quot;str&quot;)</code>,能够返回括号中的内容,括号前后的内容起到定位和过滤的效果</p>
+</li>
+<li><p>原始字符串r，待匹配字符串中有反斜杠的时候，使用r能够忽视反斜杠带来的转义的效果</p>
+</li>
+<li><p>点号默认情况匹配不到<code>\n</code></p>
+</li>
+<li><p><code>\s</code>能够匹配空白字符，不仅仅包含空格，还有<code>\t|\r\n</code></p>
+</li>
+</ul>
+<h3 id="xpath使用重点"><a href="#xpath使用重点" class="headerlink" title="xpath使用重点"></a>xpath使用重点</h3><ul>
+<li>使用xpath helper或者是chrome中的copy xpath都是从element中提取的数据，但是爬虫获取的是url对应的响应，往往和elements不一样</li>
+<li><p>获取文本</p>
+<ul>
+<li><code>a/text()</code> 获取a下的文本</li>
+<li><code>a//text()</code> 获取a下的所有标签的文本</li>
+<li><code>//a[text()=&#39;下一页&#39;]</code> 选择文本为下一页三个字的a标签</li>
+</ul>
+</li>
+<li><p><code>@符号</code></p>
+<ul>
+<li><code>a/@href</code></li>
+<li><code>//ul[@id=&quot;detail-list&quot;]</code></li>
+</ul>
+</li>
+<li><p><code>//</code></p>
+<ul>
+<li>在xpath最前面表示从当前html中任意位置开始选择</li>
+<li><code>li//a</code> 表示的是li下任何一个标签</li>
+</ul>
+</li>
+</ul>
+<h3 id="lxml使用注意点"><a href="#lxml使用注意点" class="headerlink" title="lxml使用注意点"></a>lxml使用注意点</h3><ul>
+<li><p>lxml能够修正HTML代码，但是可能会改错了</p>
+<ul>
+<li>使用etree.tostring观察修改之后的html的样子，根据修改之后的html字符串写xpath</li>
+</ul>
+</li>
+<li><p>lxml 能够接受bytes和str的字符串</p>
+</li>
+<li><p>提取页面数据的思路</p>
+<ul>
+<li>先分组，渠道一个包含分组标签的列表</li>
+<li>遍历，取其中每一组进行数据的提取，不会造成数据的对应错乱</li>
+</ul>
+</li>
+</ul>
+
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2017/11/04/re-xpath-lxml/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -899,24 +947,28 @@ re.findall(&quot;a(.*?)b&quot;,&quot;str&quot;),能够返回括号中的内容,�
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-22 16:53:17" itemprop="dateModified" datetime="2019-01-22T16:53:17+08:00">2019-01-22</time>
+              
+            
           </span>
 
           
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2017/09/22/验证码与selenium/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2017/09/22/验证码与selenium/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -944,27 +996,56 @@ re.findall(&quot;a(.*?)b&quot;,&quot;str&quot;),能够返回括号中的内容,�
       
         
           
-            <p>
-              验证码的识别
-url不变，验证码不变
+            <h4 id="验证码的识别"><a href="#验证码的识别" class="headerlink" title="验证码的识别"></a>验证码的识别</h4><ul>
+<li><p>url不变，验证码不变</p>
+<ul>
+<li>请求验证码的地址，获得相应，识别</li>
+</ul>
+</li>
+<li><p>url不变，验证码会变</p>
+<ul>
+<li><p>思路：对方服务器返回验证码的时候，会和每个用户的信息和验证码进行一个对应，之后，在用户发送post请求的时候，会对比post请求中法的验证码和当前用户真正的存储在服务器端的验证码是否相同</p>
+</li>
+<li><p>1.实例化session</p>
+</li>
+<li>2.使用seesion请求登录页面，获取验证码的地址</li>
+<li>3.使用session请求验证码，识别</li>
+<li>4.使用session发送post请求’</li>
+</ul>
+</li>
+<li><p>使用selenium登录，遇到验证码</p>
+<ul>
+<li>url不变，验证码不变，同上</li>
+<li>url不变，验证码会变<ul>
+<li>1.selenium请求登录页面，同时拿到验证码的地址</li>
+<li>2.获取登录页面中driver中的cookie，交给requests模块发送验证码的请求，识别</li>
+<li>3.输入验证码，点击登录</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="selenium使用的注意点"><a href="#selenium使用的注意点" class="headerlink" title="selenium使用的注意点"></a>selenium使用的注意点</h3><ul>
+<li>获取文本和获取属性<ul>
+<li>先定位到元素，然后调用<code>.text</code>或者<code>get_attribute</code>方法来去</li>
+</ul>
+</li>
+<li>selenium获取的页面数据是浏览器中elements的内容</li>
+<li>find_element和find_elements的区别<ul>
+<li>find_element返回一个element，如果没有会报错</li>
+<li>find_elements返回一个列表，没有就是空列表</li>
+<li>在判断是否有下一页的时候，使用find_elements来根据结果的列表长度来判断</li>
+</ul>
+</li>
+<li><p>如果页面中含有iframe、frame，需要先调用driver.switch_to.frame的方法切换到frame中才能定位元素</p>
+</li>
+<li><p>selenium请求第一页的时候回等待页面加载完了之后在获取数据，但是在点击翻页之后，hi直接获取数据，此时可能会报错，因为数据还没有加载出来，需要time.sleep(3)</p>
+</li>
+<li>selenium中find_element_by_class_name智能接收一个class对应的一个值，不能传入多个</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">db.stu.aggregate(&#123;$group:&#123;_id:&quot;$name&quot;,counter:&#123;$sum:2&#125;&#125;&#125;)</span><br><span class="line"></span><br><span class="line">db.stu.aggregate(&#123;$group:&#123;_id:null,counter:&#123;$sum:1&#125;&#125;&#125;)</span><br><span class="line">db.stu.aggregate(&#123;$group:&#123;_id:&quot;$gender&quot;,name:&#123;$push:&quot;$name&quot;&#125;&#125;&#125;)</span><br><span class="line">db.stu.aggregate(&#123;$group:&#123;_id:&quot;$gender&quot;,name:&#123;$push:&quot;$$ROOT&quot;&#125;&#125;&#125;)</span><br><span class="line">db.tv3.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&#123;&quot;country&quot;:&quot;$country&quot;,province:&quot;$province&quot;,userid:&quot;$userid&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;&#125;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;,count:&quot;$count&quot;,_id:0&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">db.stu.aggregate(</span><br><span class="line"></span><br><span class="line">  &#123;$match:&#123;age:&#123;$gt:20&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">db.t2.aggregate(</span><br><span class="line">  &#123;$unwind:&quot;$size&quot;&#125;</span><br><span class="line">  )</span><br><span class="line">db.t3.aggregate(</span><br><span class="line">  &#123;$unwind:&quot;$tags&quot;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:null,count:&#123;$sum:1&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">db.t3.aggregate(</span><br><span class="line">  &#123;$unwind:&#123;path:&quot;$size&quot;,preserveNullAndEmptyArrays:true&#125;&#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
 
-请求验证码的地址，获得相应，识别
-
-
-url不变，验证码会变
-
-思路：对方服务器返回验证码的时候，会和每个用户的信息和验
-              ...
-            </p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2017/09/22/验证码与selenium/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1124,7 +1205,7 @@ url不变，验证码会变
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1136,9 +1217,15 @@ url不变，验证码会变
 </div>
 
 
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
 
 
 
@@ -1191,12 +1278,6 @@ url不变，验证码会变
 
 
 
-  
-    
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
 
 
 
@@ -1232,10 +1313,7 @@ url不变，验证码会变
   
 
 
-  <script src="/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
-
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
 
 
 
@@ -1249,35 +1327,6 @@ url不变，验证码会变
 
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: 'udyt7NgQnLJd4dzClQFJ1goE-gzGzoHsz',
-    appKey: 'GXGnQuS9dJ9GydcPahcWNEER',
-    placeholder: '请在这里留下您想说的话!',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-</script>
-
-
 
 
 
