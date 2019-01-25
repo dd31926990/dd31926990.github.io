@@ -14,25 +14,25 @@
     
     
     
-    <title>re_xpath_lxml | 雨夜的博客 | 非学无以致疑,非问无以广识!</title>
+    <title>url去重 | 雨夜的博客 | 非学无以致疑,非问无以广识!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="re,xpath,lxml">
-    <meta name="description" content="正则使用的注意点 re.findall(&amp;quot;a(.*?)b&amp;quot;,&amp;quot;str&amp;quot;),能够返回括号中的内容,括号前后的内容起到定位和过滤的效果  原始字符串r，待匹配字符串中有反斜杠的时候，使用r能够忽视反斜杠带来的转义的效果  点号默认情况匹配不到\n  \s能够匹配空白字符，不仅仅包含空格，还有\t|\r\n   xpath使用重点 使用xpath helper或者">
-<meta name="keywords" content="re,xpath,lxml">
+    <meta name="keywords" content="crawlspider">
+    <meta name="description" content="request对象什么时候入队 dont_filter = True ,构造请求的时候，把dont_filter置为True，该url会被反复抓取（url地址对应的内容会更新的情况） 一个全新的url地址被抓到的时候，构造request请求 url地址在start_urls中的时候，会入队，不管之前是否请求过 构造start_url地址的请求时候，dont_filter = True    123">
+<meta name="keywords" content="crawlspider">
 <meta property="og:type" content="article">
-<meta property="og:title" content="re_xpath_lxml">
-<meta property="og:url" content="http://yoursite.com/2017/11/04/re-xpath-lxml/index.html">
+<meta property="og:title" content="url去重">
+<meta property="og:url" content="http://yoursite.com/2018/02/09/url去重/index.html">
 <meta property="og:site_name" content="雨夜的博客">
-<meta property="og:description" content="正则使用的注意点 re.findall(&amp;quot;a(.*?)b&amp;quot;,&amp;quot;str&amp;quot;),能够返回括号中的内容,括号前后的内容起到定位和过滤的效果  原始字符串r，待匹配字符串中有反斜杠的时候，使用r能够忽视反斜杠带来的转义的效果  点号默认情况匹配不到\n  \s能够匹配空白字符，不仅仅包含空格，还有\t|\r\n   xpath使用重点 使用xpath helper或者">
+<meta property="og:description" content="request对象什么时候入队 dont_filter = True ,构造请求的时候，把dont_filter置为True，该url会被反复抓取（url地址对应的内容会更新的情况） 一个全新的url地址被抓到的时候，构造request请求 url地址在start_urls中的时候，会入队，不管之前是否请求过 构造start_url地址的请求时候，dont_filter = True    123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-23T07:21:43.480Z">
+<meta property="og:updated_time" content="2019-01-25T07:44:16.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="re_xpath_lxml">
-<meta name="twitter:description" content="正则使用的注意点 re.findall(&amp;quot;a(.*?)b&amp;quot;,&amp;quot;str&amp;quot;),能够返回括号中的内容,括号前后的内容起到定位和过滤的效果  原始字符串r，待匹配字符串中有反斜杠的时候，使用r能够忽视反斜杠带来的转义的效果  点号默认情况匹配不到\n  \s能够匹配空白字符，不仅仅包含空格，还有\t|\r\n   xpath使用重点 使用xpath helper或者">
+<meta name="twitter:title" content="url去重">
+<meta name="twitter:description" content="request对象什么时候入队 dont_filter = True ,构造请求的时候，把dont_filter置为True，该url会被反复抓取（url地址对应的内容会更新的情况） 一个全新的url地址被抓到的时候，构造request请求 url地址在start_urls中的时候，会入队，不管之前是否请求过 构造start_url地址的请求时候，dont_filter = True    123">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -111,7 +111,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">re_xpath_lxml</div>
+        <div class="flex-col header-title ellipsis">url去重</div>
         
         
     </div>
@@ -119,15 +119,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">re_xpath_lxml</h1>
+        <h1 class="title">url去重</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-11-04T09:20:55.000Z" itemprop="datePublished" class="page-time">
-  2017-11-04
+                <time datetime="2018-02-09T09:36:15.000Z" itemprop="datePublished" class="page-time">
+  2018-02-09
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/注意点/">注意点</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
 
             
         </h5>
@@ -144,20 +144,20 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#正则使用的注意点"><span class="post-toc-number">1.</span> <span class="post-toc-text">正则使用的注意点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#xpath使用重点"><span class="post-toc-number">2.</span> <span class="post-toc-text">xpath使用重点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lxml使用注意点"><span class="post-toc-number">3.</span> <span class="post-toc-text">lxml使用注意点</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#request对象什么时候入队"><span class="post-toc-number">1.</span> <span class="post-toc-text">request对象什么时候入队</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#scrapy-redis去重方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">scrapy_redis去重方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成指纹"><span class="post-toc-number">3.</span> <span class="post-toc-text">生成指纹</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断数据是否存在redis的集合中，不存在插入"><span class="post-toc-number">4.</span> <span class="post-toc-text">判断数据是否存在redis的集合中，不存在插入</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="posts-re-xpath-lxml" class="post-article article-type-posts fade" itemprop="blogPost">
+<article id="post-url去重" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">re_xpath_lxml</h1>
+        <h1 class="post-card-title">url去重</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-11-04 17:20:55" datetime="2017-11-04T09:20:55.000Z" itemprop="datePublished">2017-11-04</time>
+            <time class="post-time" title="2018-02-09 17:36:15" datetime="2018-02-09T09:36:15.000Z" itemprop="datePublished">2018-02-09</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/注意点/">注意点</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
 
 
 
@@ -169,53 +169,22 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="正则使用的注意点"><a href="#正则使用的注意点" class="headerlink" title="正则使用的注意点"></a>正则使用的注意点</h3><ul>
-<li><p><code>re.findall(&quot;a(.*?)b&quot;,&quot;str&quot;)</code>,能够返回括号中的内容,括号前后的内容起到定位和过滤的效果</p>
-</li>
-<li><p>原始字符串r，待匹配字符串中有反斜杠的时候，使用r能够忽视反斜杠带来的转义的效果</p>
-</li>
-<li><p>点号默认情况匹配不到<code>\n</code></p>
-</li>
-<li><p><code>\s</code>能够匹配空白字符，不仅仅包含空格，还有<code>\t|\r\n</code></p>
-</li>
-</ul>
-<h3 id="xpath使用重点"><a href="#xpath使用重点" class="headerlink" title="xpath使用重点"></a>xpath使用重点</h3><ul>
-<li>使用xpath helper或者是chrome中的copy xpath都是从element中提取的数据，但是爬虫获取的是url对应的响应，往往和elements不一样</li>
-<li><p>获取文本</p>
-<ul>
-<li><code>a/text()</code> 获取a下的文本</li>
-<li><code>a//text()</code> 获取a下的所有标签的文本</li>
-<li><code>//a[text()=&#39;下一页&#39;]</code> 选择文本为下一页三个字的a标签</li>
-</ul>
-</li>
-<li><p><code>@符号</code></p>
-<ul>
-<li><code>a/@href</code></li>
-<li><code>//ul[@id=&quot;detail-list&quot;]</code></li>
-</ul>
-</li>
-<li><p><code>//</code></p>
-<ul>
-<li>在xpath最前面表示从当前html中任意位置开始选择</li>
-<li><code>li//a</code> 表示的是li下任何一个标签</li>
+            <h3 id="request对象什么时候入队"><a href="#request对象什么时候入队" class="headerlink" title="request对象什么时候入队"></a>request对象什么时候入队</h3><ul>
+<li>dont_filter = True ,构造请求的时候，把dont_filter置为True，该url会被反复抓取（url地址对应的内容会更新的情况）</li>
+<li>一个全新的url地址被抓到的时候，构造request请求</li>
+<li>url地址在start_urls中的时候，会入队，不管之前是否请求过<ul>
+<li>构造start_url地址的请求时候，dont_filter = True</li>
 </ul>
 </li>
 </ul>
-<h3 id="lxml使用注意点"><a href="#lxml使用注意点" class="headerlink" title="lxml使用注意点"></a>lxml使用注意点</h3><ul>
-<li><p>lxml能够修正HTML代码，但是可能会改错了</p>
-<ul>
-<li>使用etree.tostring观察修改之后的html的样子，根据修改之后的html字符串写xpath</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enqueue_request</span><span class="params">(self, request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> request.dont_filter <span class="keyword">and</span> self.df.request_seen(request):</span><br><span class="line">        <span class="comment"># dont_filter=False Ture  True request指纹已经存在  #不会入队</span></span><br><span class="line">        <span class="comment"># dont_filter=False Ture  False  request指纹已经存在 全新的url  #会入队</span></span><br><span class="line">        <span class="comment"># dont_filter=Ture False  #会入队</span></span><br><span class="line">        self.df.log(request, self.spider)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    self.queue.push(request) <span class="comment">#入队</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h3 id="scrapy-redis去重方法"><a href="#scrapy-redis去重方法" class="headerlink" title="scrapy_redis去重方法"></a>scrapy_redis去重方法</h3><ul>
+<li>使用sha1加密request得到指纹</li>
+<li>把指纹存在redis的集合中</li>
+<li>下一次新来一个request，同样的方式生成指纹，判断指纹是否存在reids的集合中</li>
 </ul>
-</li>
-<li><p>lxml 能够接受bytes和str的字符串</p>
-</li>
-<li><p>提取页面数据的思路</p>
-<ul>
-<li>先分组，渠道一个包含分组标签的列表</li>
-<li>遍历，取其中每一组进行数据的提取，不会造成数据的对应错乱</li>
-</ul>
-</li>
-</ul>
+<h3 id="生成指纹"><a href="#生成指纹" class="headerlink" title="生成指纹"></a>生成指纹</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fp = hashlib.sha1()</span><br><span class="line">fp.update(to_bytes(request.method))  <span class="comment">#请求方法</span></span><br><span class="line">fp.update(to_bytes(canonicalize_url(request.url))) <span class="comment">#url</span></span><br><span class="line">fp.update(request.body <span class="keyword">or</span> <span class="string">b''</span>)  <span class="comment">#请求体</span></span><br><span class="line"><span class="keyword">return</span> fp.hexdigest()</span><br></pre></td></tr></table></figure>
+<h3 id="判断数据是否存在redis的集合中，不存在插入"><a href="#判断数据是否存在redis的集合中，不存在插入" class="headerlink" title="判断数据是否存在redis的集合中，不存在插入"></a>判断数据是否存在redis的集合中，不存在插入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">added = self.server.sadd(self.key, fp)</span><br><span class="line"><span class="keyword">return</span> added != <span class="number">0</span></span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -229,7 +198,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lxml/">lxml</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/re/">re</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xpath/">xpath</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crawlspider/">crawlspider</a></li></ul>
 
 
             
@@ -242,18 +211,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/02/09/url去重/" id="post-prev" class="post-nav-link">
+      <a href="/2018/02/09/mongodb数据库/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">url去重</h4>
+        <h4 class="title">mongodb数据库</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/09/22/验证码与selenium/" id="post-next" class="post-nav-link">
+      <a href="/2017/11/04/re-xpath-lxml/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">验证码与selenium</h4>
+        <h4 class="title">re_xpath_lxml</h4>
       </a>
     </div>
   

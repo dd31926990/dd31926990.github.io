@@ -188,6 +188,61 @@ scrapy....
         </li>
     
         <li class="post-list-item fade">
+            <article id="post-crawlspider的使用" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-03-03 12:36:15" datetime="2018-03-03T04:36:15.000Z" itemprop="datePublished">2018-03-03</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/03/03/crawlspider的使用/">crawlspider的使用</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        crawlspider的使用
+创建爬虫 scarpy genspider -t crawl spider_name allow_domain
+完善spider
+1.start_url
+2.完善rules
+元组
+Rule(LinkExtractor,callback，follow)
+LinkExtractor 连接提取器，提取url
+callback url的响应会交给该callback处理
+...
+    
+
+        <a href="/2018/03/03/crawlspider的使用/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crawlspider/">crawlspider</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-mongodb数据库" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -232,6 +287,60 @@ db.test1000.update({name:&quot;xiaowang&quot;},{name:&quot;xiaozhao&quot;})
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-url去重" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-02-09 17:36:15" datetime="2018-02-09T09:36:15.000Z" itemprop="datePublished">2018-02-09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/02/09/url去重/">url去重</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        request对象什么时候入队
+dont_filter = True ,构造请求的时候，把dont_filter置为True，该url会被反复抓取（url地址对应的内容会更新的情况）
+一个全新的url地址被抓到的时候，构造request请求
+url地址在start_urls中的时候，会入队，不管之前是否请求过
+构造start_url地址的请求时候，dont_filter = True
+
+
+
+...
+    
+
+        <a href="/2018/02/09/url去重/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crawlspider/">crawlspider</a></li></ul>
 
     </div>
     
