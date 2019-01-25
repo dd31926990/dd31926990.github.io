@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>爬虫程序实现思路 | 雨夜的博客 | 非学无以致疑,非问无以广识!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="xpath,lxml,queue">
+    <meta name="description" content="xpath的包含 //div[contains(@class,&amp;#39;i&amp;#39;)]  xpath有哪些常用方法 // 从任意位置选择节点 //a/text() a下的文本 //a//text() a下所有的文本   . 当前路径 @符号 a/@href div[@class=&amp;#39;a&amp;#39;]   text() a[text()=&amp;#39;下一页&amp;#39;]   .. 上一级 //a[">
+<meta name="keywords" content="xpath,lxml,queue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫程序实现思路">
+<meta property="og:url" content="http://yoursite.com/2017/05/11/005爬虫程序实现思路/index.html">
+<meta property="og:site_name" content="雨夜的博客">
+<meta property="og:description" content="xpath的包含 //div[contains(@class,&amp;#39;i&amp;#39;)]  xpath有哪些常用方法 // 从任意位置选择节点 //a/text() a下的文本 //a//text() a下所有的文本   . 当前路径 @符号 a/@href div[@class=&amp;#39;a&amp;#39;]   text() a[text()=&amp;#39;下一页&amp;#39;]   .. 上一级 //a[">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-25T14:25:39.825Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爬虫程序实现思路">
+<meta name="twitter:description" content="xpath的包含 //div[contains(@class,&amp;#39;i&amp;#39;)]  xpath有哪些常用方法 // 从任意位置选择节点 //a/text() a下的文本 //a//text() a下所有的文本   . 当前路径 @符号 a/@href div[@class=&amp;#39;a&amp;#39;]   text() a[text()=&amp;#39;下一页&amp;#39;]   .. 上一级 //a[">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuYe</h5>
+          <a href="mailto:31926990@qq.com" title="31926990@qq.com" class="mail">31926990@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">爬虫程序实现思路</div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">爬虫程序实现思路</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-11T05:50:55.000Z" itemprop="datePublished" class="page-time">
+  2017-05-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/思维/">思维</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#xpath的包含"><span class="post-toc-number">1.</span> <span class="post-toc-text">xpath的包含</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#xpath有哪些常用方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">xpath有哪些常用方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现爬虫的套路"><span class="post-toc-number">3.</span> <span class="post-toc-text">实现爬虫的套路</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lxml模块如何使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">lxml模块如何使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#queue模块如何使用"><span class="post-toc-number">5.</span> <span class="post-toc-text">queue模块如何使用</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-005爬虫程序实现思路" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">爬虫程序实现思路</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-11 13:50:55" datetime="2017-05-11T05:50:55.000Z" itemprop="datePublished">2017-05-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/思维/">思维</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="xpath的包含"><a href="#xpath的包含" class="headerlink" title="xpath的包含"></a>xpath的包含</h3><ul>
+<li><code>//div[contains(@class,&#39;i&#39;)]</code></li>
+</ul>
+<h3 id="xpath有哪些常用方法"><a href="#xpath有哪些常用方法" class="headerlink" title="xpath有哪些常用方法"></a>xpath有哪些常用方法</h3><ul>
+<li><code>//</code> 从任意位置选择节点<ul>
+<li><code>//a/text()</code> a下的文本</li>
+<li><code>//a//text()</code> a下所有的文本</li>
+</ul>
+</li>
+<li><code>.</code> 当前路径</li>
+<li><code>@符号</code><ul>
+<li><code>a/@href</code></li>
+<li><code>div[@class=&#39;a&#39;]</code></li>
+</ul>
+</li>
+<li><code>text()</code><ul>
+<li><code>a[text()=&#39;下一页&#39;]</code></li>
+</ul>
+</li>
+<li><code>..</code> 上一级</li>
+<li><code>//a[1]</code></li>
+<li><code>//a[last()]</code></li>
+<li><code>//a[postion()&lt;4]</code></li>
+<li><code>//a[1]|//a[5]</code></li>
+<li><code>a[contains(text(),&quot;下一页&quot;)]</code></li>
+</ul>
+<h3 id="实现爬虫的套路"><a href="#实现爬虫的套路" class="headerlink" title="实现爬虫的套路"></a>实现爬虫的套路</h3><ul>
+<li><p>准备url</p>
+<ul>
+<li>准备start_url<ul>
+<li>url地址规律不明显，总数不确定</li>
+<li>通过代码提取下一页的url<ul>
+<li>xpath</li>
+<li>寻找url地址，部分参数在当前的响应中（比如，当前页码数和总的页码数在当前的响应中）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>准备url_list<ul>
+<li>页码总数明确</li>
+<li>url地址规律明显</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>发送请求，获取响应</p>
+<ul>
+<li>添加随机的User-Agent,反反爬虫</li>
+<li>添加随机的代理ip，反反爬虫</li>
+<li>在对方判断出我们是爬虫之后，应该添加更多的headers字段，包括cookie</li>
+<li>cookie的处理可以使用session来解决</li>
+<li>准备一堆能用的cookie，组成cookie池<ul>
+<li>如果不登录<ul>
+<li>准备刚开始能够成功请求对方网站的cookie，即接收对方网站设置在response的cookie</li>
+<li>下一次请求的时候，使用之前的列表中的cookie来请求</li>
+</ul>
+</li>
+<li>如果登录<ul>
+<li>准备多个账号</li>
+<li>使用程序获取每个账号的cookie</li>
+<li>之后请求登录之后才能访问的网站随机的选择cookie</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>提取数据</p>
+<ul>
+<li><p>确定数据的位置</p>
+<ul>
+<li><p>如果数据在当前的url地址中</p>
+<ul>
+<li>提取的是列表页的数据<ul>
+<li>直接请求列表页的url地址，不用进入详情页</li>
+</ul>
+</li>
+<li>提取的是详情页的数据<ul>
+<li><ol>
+<li>确定url</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>发送请求</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>提取数据</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>返回</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如果数据不在当前的url地址中</p>
+<ul>
+<li>在其他的响应中，寻找数据的位置<ul>
+<li><ol>
+<li>从network中从上往下找</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>使用chrome中的过滤条件，选择出了js,css,img之外的按钮</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>使用chrome的search all file，搜索数字和英文</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据的提取<ul>
+<li>xpath,从html中提取整块的数据，先分组，之后每一组再提取</li>
+<li>re，提取max_time,price,html中的json字符串</li>
+<li>json</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>保存<ul>
+<li>保存在本地，text,json,csv</li>
+<li>保存在数据库</li>
+</ul>
+</li>
+</ul>
+<h3 id="lxml模块如何使用"><a href="#lxml模块如何使用" class="headerlink" title="lxml模块如何使用"></a>lxml模块如何使用</h3><ul>
+<li>from lxml import etree</li>
+<li>element = etree.HMTL(str,bytes)</li>
+<li>element.xpath(“xpath”)</li>
+<li>etree.tostring(element) #把element转化为字符串</li>
+</ul>
+<h3 id="queue模块如何使用"><a href="#queue模块如何使用" class="headerlink" title="queue模块如何使用"></a>queue模块如何使用</h3><ul>
+<li>from queue import Queue</li>
+<li>实例化</li>
+<li>queue.put() #get计数减一</li>
+<li>queue.get()</li>
+<li>queue.task_doen() #计数减一</li>
+<li>queue.join() #让主线程阻塞</li>
+</ul>
+
+        </div>
+
+        
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lxml/">lxml</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/queue/">queue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xpath/">xpath</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/22/006验证码与selenium/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">验证码与selenium</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/04/004re-xpath-lxml/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">re_xpath_lxml</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "udyt7NgQnLJd4dzClQFJ1goE-gzGzoHsz",
+            appKey: "GXGnQuS9dJ9GydcPahcWNEER",
+            avatar: "mm",
+            placeholder: "意见及反馈!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "5"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~~~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>破山中,贼易;破心中,贼难。</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>YuYe &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '糟糕！网页崩溃了!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

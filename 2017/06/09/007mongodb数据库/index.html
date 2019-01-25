@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>mongodb数据库 | 雨夜的博客 | 非学无以致疑,非问无以广识!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="mongodb">
+    <meta name="description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
+<meta name="keywords" content="mongodb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb数据库">
+<meta property="og:url" content="http://yoursite.com/2017/06/09/007mongodb数据库/index.html">
+<meta property="og:site_name" content="雨夜的博客">
+<meta property="og:description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-25T14:30:40.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb数据库">
+<meta name="twitter:description" content="mongodb插入数据 db.collecion.insert({}) 插入数据，_id存在就报错   db.collection.save({}) 插入数据，_id存在会更新  mongodb的更新操作 db.test1000.update({name:&amp;quot;xiaowang&amp;quot;},{name:&amp;quot;xiaozhao&amp;quot;}) 把name为xiaowang的数据替换为{">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuYe</h5>
+          <a href="mailto:31926990@qq.com" title="31926990@qq.com" class="mail">31926990@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">mongodb数据库</div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">mongodb数据库</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-09T09:36:15.000Z" itemprop="datePublished" class="page-time">
+  2017-06-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongodb插入数据"><span class="post-toc-number">1.</span> <span class="post-toc-text">mongodb插入数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongodb的更新操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">mongodb的更新操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongodb删除"><span class="post-toc-number">3.</span> <span class="post-toc-text">mongodb删除</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongodb的count方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">mongodb的count方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongodb的投影"><span class="post-toc-number">5.</span> <span class="post-toc-text">mongodb的投影</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#group的注意点"><span class="post-toc-number">6.</span> <span class="post-toc-text">$group的注意点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编辑器写mongodb语句"><span class="post-toc-number">7.</span> <span class="post-toc-text">编辑器写mongodb语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongodb的增删改查如何操作"><span class="post-toc-number">8.</span> <span class="post-toc-text">mongodb的增删改查如何操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongodb统计数量，mongodb的投影操作"><span class="post-toc-number">9.</span> <span class="post-toc-text">mongodb统计数量，mongodb的投影操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongodb的比较运算符-大于，小于等于等-，范围运算符（in，not-in），逻辑运算符（and-，or）"><span class="post-toc-number">10.</span> <span class="post-toc-text">mongodb的比较运算符(大于，小于等于等)，范围运算符（in，not in），逻辑运算符（and ，or）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mongodb的排序和消除重复"><span class="post-toc-number">11.</span> <span class="post-toc-text">mongodb的排序和消除重复</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#聚合操作的分组和计数如何使用，如何修改输出数据的样式，"><span class="post-toc-number">12.</span> <span class="post-toc-text">聚合操作的分组和计数如何使用，如何修改输出数据的样式，</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#聚合操作如何匹配内容"><span class="post-toc-number">13.</span> <span class="post-toc-text">聚合操作如何匹配内容</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-007mongodb数据库" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">mongodb数据库</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-09 17:36:15" datetime="2017-06-09T09:36:15.000Z" itemprop="datePublished">2017-06-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="mongodb插入数据"><a href="#mongodb插入数据" class="headerlink" title="mongodb插入数据"></a>mongodb插入数据</h3><ul>
+<li>db.collecion.insert({}) 插入数据，<code>_id</code>存在就报错  </li>
+<li>db.collection.save({}) 插入数据，<code>_id</code>存在会更新</li>
+</ul>
+<h3 id="mongodb的更新操作"><a href="#mongodb的更新操作" class="headerlink" title="mongodb的更新操作"></a>mongodb的更新操作</h3><ul>
+<li><code>db.test1000.update({name:&quot;xiaowang&quot;},{name:&quot;xiaozhao&quot;})</code></li>
+<li>把name为xiaowang的数据替换为<code>{name:&quot;xiaozhao&quot;}</code></li>
+<li><code>db.test1000.update({name:&quot;xiaohong&quot;},{$set:{name:&quot;xiaozhang&quot;}})</code></li>
+<li>把name为xiaowang的数据name的值更新为xiaozhang</li>
+<li><code>db.test1000.update({name:&quot;xiaozhang&quot;},{$set:{name:&quot;xiaohong&quot;}},{multi:true})</code></li>
+<li><code>{multi:true}</code>达到更新多条的目的</li>
+</ul>
+<h3 id="mongodb删除"><a href="#mongodb删除" class="headerlink" title="mongodb删除"></a>mongodb删除</h3><ul>
+<li><code>db.test1000.remove({name:&quot;xiaohong&quot;},{justOne:true})</code></li>
+<li>默认情况会删除所有满足条件的数据，<code>{justOne:true}</code>能达到只删除一条的效果</li>
+</ul>
+<h3 id="mongodb的count方法"><a href="#mongodb的count方法" class="headerlink" title="mongodb的count方法"></a>mongodb的count方法</h3><ul>
+<li><code>db.collection.find({条件}).count()</code></li>
+<li><code>db.collection.count({})</code></li>
+</ul>
+<h3 id="mongodb的投影"><a href="#mongodb的投影" class="headerlink" title="mongodb的投影"></a>mongodb的投影</h3><ul>
+<li>投影:选择返回结果的字段</li>
+<li><code>db.collection.find({条件},{name:1,_id:0})</code><ul>
+<li>1.<code>_id</code>默认会显示，置为0不显示</li>
+<li>2.出了<code>_id</code>之外的其他字段，如果不显示，不写，不能写为0<h3 id="group的注意点"><a href="#group的注意点" class="headerlink" title="$group的注意点"></a>$group的注意点</h3></li>
+</ul>
+</li>
+<li><code>$group</code>对应的字典中有几个键，结果中就有几个键</li>
+<li>分组依据需要放到<code>_id</code>后面</li>
+<li>取不同的字段的值需要使用$,<code>$gender</code>,<code>$age</code></li>
+<li>取字典嵌套的字典中的值的时候<code>$_id.country</code></li>
+<li>能够同时按照多个键进行分组<code>{$group:{_id:{country:&quot;$country&quot;,province:&quot;$province&quot;}}}</code><ul>
+<li>结果是：<code>{_id:{country:&quot;&quot;,province:&quot;&quot;}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="编辑器写mongodb语句"><a href="#编辑器写mongodb语句" class="headerlink" title="编辑器写mongodb语句"></a>编辑器写mongodb语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">db.stu.find(</span><br><span class="line">  &#123;$or:[&#123;age:&#123;$gte:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;桃花岛&quot;,&quot;华⼭&quot;]&#125;&#125;]&#125;</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">#按照gender进行分组，获取不同组数据的个数和平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;,avg_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;gender:&quot;$_id&quot;,count:1,avg_age:&quot;$avg_age&quot;,_id:0&#125;&#125;</span><br><span class="line">  )</span><br><span class="line"># 按照hometown进行分组，获取不同组的平均年龄</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$hometown&quot;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#使用$group统计整个文档</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:null,count:&#123;$sum:1&#125;,mean_age:&#123;$avg:&quot;$age&quot;&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">#选择年龄大于20的学生，观察男性和女性有多少人</span><br><span class="line">db.stu.aggregate(</span><br><span class="line">  &#123;$match:&#123;$or:[&#123;age:&#123;$gt:20&#125;&#125;,&#123;hometown:&#123;$in:[&quot;蒙古&quot;,&quot;⼤理&quot;]&#125;&#125;]&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;_id:0,gender:&quot;$_id&quot;,count:1&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">db.tv3.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$country&quot;,province:&quot;$province&quot;,userid:&quot;$userid&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;&#125;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;,count:1,_id:0&#125;&#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<h3 id="mongodb的增删改查如何操作"><a href="#mongodb的增删改查如何操作" class="headerlink" title="mongodb的增删改查如何操作"></a>mongodb的增删改查如何操作</h3><ul>
+<li>增<ul>
+<li>db.collection.insert() #<code>_id</code>相同会报错</li>
+<li>db.collection.save() #<code>_id</code>相同会更新其余的字段</li>
+</ul>
+</li>
+<li>删<ul>
+<li>db.collection.remove({},{justOne:ture})</li>
+</ul>
+</li>
+<li>更新<ul>
+<li><code>db.collection.update({},{$set:{name:&quot;a&quot;}},{multi:true})</code></li>
+</ul>
+</li>
+<li>查询<ul>
+<li>db.collection.find({})</li>
+<li>db.collection.find({}).pretty()</li>
+</ul>
+</li>
+</ul>
+<h3 id="mongodb统计数量，mongodb的投影操作"><a href="#mongodb统计数量，mongodb的投影操作" class="headerlink" title="mongodb统计数量，mongodb的投影操作"></a>mongodb统计数量，mongodb的投影操作</h3><ul>
+<li>db.collection.count({})</li>
+<li>db.collection.find({}).count</li>
+<li>投影：设置返回的字段</li>
+<li>db.collection.find({},{_id:0,name:1})</li>
+</ul>
+<h3 id="mongodb的比较运算符-大于，小于等于等-，范围运算符（in，not-in），逻辑运算符（and-，or）"><a href="#mongodb的比较运算符-大于，小于等于等-，范围运算符（in，not-in），逻辑运算符（and-，or）" class="headerlink" title="mongodb的比较运算符(大于，小于等于等)，范围运算符（in，not in），逻辑运算符（and ，or）"></a>mongodb的比较运算符(大于，小于等于等)，范围运算符（in，not in），逻辑运算符（and ，or）</h3><ul>
+<li>大于，大于等于 <code>$gt,$get</code></li>
+<li><code>$lt,$lte 小于，小于等于</code></li>
+<li><p>$ne 不等于</p>
+</li>
+<li><p>在 <code>$in</code></p>
+<ul>
+<li><code>db.collection.find({name:{$in:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]}})</code></li>
+</ul>
+</li>
+<li><p>不在 <code>$nin</code></p>
+<ul>
+<li><code>db.collection.find({name:{$nin:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]}})</code></li>
+</ul>
+</li>
+<li><p>和</p>
+<ul>
+<li><code>db.collection.find({name:&quot;a&quot;,age:20})</code></li>
+</ul>
+</li>
+<li>or<ul>
+<li><code>bd.collection.find({$or:[{name:&quot;a&quot;},{age:20}]})</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="mongodb的排序和消除重复"><a href="#mongodb的排序和消除重复" class="headerlink" title="mongodb的排序和消除重复"></a>mongodb的排序和消除重复</h3><ul>
+<li><p>排序</p>
+<ul>
+<li>db.collection.find({}).sort({age:1})</li>
+</ul>
+</li>
+<li><p>distinct</p>
+<ul>
+<li>db.collection.distinct(“gender”,{age:{$gt:18}})</li>
+<li>返回数组</li>
+</ul>
+</li>
+</ul>
+<h3 id="聚合操作的分组和计数如何使用，如何修改输出数据的样式，"><a href="#聚合操作的分组和计数如何使用，如何修改输出数据的样式，" class="headerlink" title="聚合操作的分组和计数如何使用，如何修改输出数据的样式，"></a>聚合操作的分组和计数如何使用，如何修改输出数据的样式，</h3><ul>
+<li>分组<ul>
+<li><code>db.collection.aggregate({$group:{_id:&quot;$age&quot;,count:{$sum:1}}})</code></li>
+</ul>
+</li>
+<li><code>$project</code><ul>
+<li><code>db.collection.aggregate(
+{$group:{_id:&quot;$age&quot;,count:{$sum:1}}},
+{$project:{_id:0,age:&quot;$_id&quot;,count:1}}
+)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="聚合操作如何匹配内容"><a href="#聚合操作如何匹配内容" class="headerlink" title="聚合操作如何匹配内容"></a>聚合操作如何匹配内容</h3><ul>
+<li><code>$match</code><ul>
+<li><code>db.collection.aggregate(
+{$match:{gender:true},
+{$group:{_id:&quot;$age&quot;,count:{$sum:1}}},
+{$project:{_id:0,age:&quot;$_id&quot;,count:1}}
+)</code></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/29/008各大数据库的区别以及url去重原理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">各大数据库的区别以及url去重原理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/22/006验证码与selenium/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">验证码与selenium</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "udyt7NgQnLJd4dzClQFJ1goE-gzGzoHsz",
+            appKey: "GXGnQuS9dJ9GydcPahcWNEER",
+            avatar: "mm",
+            placeholder: "意见及反馈!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "5"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~~~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>破山中,贼易;破心中,贼难。</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>YuYe &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '糟糕！网页崩溃了!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
