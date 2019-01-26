@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="雨夜的博客">
 <meta property="og:description" content="scrapy数据流程 调度器—》request—》引擎—》下载中间件—》下载器 下载器发送请求，获取resposne，—》response—&amp;gt;下载中间件—》引擎—》爬虫中间件—》spider spider 提取数据—》引擎—》pipeline spider 提取url地址–》构造request—》爬虫中间件—》引擎—》调度器  scrapy的使用流程 创建项目 scrapy startpro">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-25T14:59:46.518Z">
+<meta property="og:updated_time" content="2019-01-26T07:29:50.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrapy基本操作">
 <meta name="twitter:description" content="scrapy数据流程 调度器—》request—》引擎—》下载中间件—》下载器 下载器发送请求，获取resposne，—》response—&amp;gt;下载中间件—》引擎—》爬虫中间件—》spider spider 提取数据—》引擎—》pipeline spider 提取url地址–》构造request—》爬虫中间件—》引擎—》调度器  scrapy的使用流程 创建项目 scrapy startpro">
@@ -226,7 +226,8 @@
 <li><p>管道</p>
 <ul>
 <li>开启管道<ul>
-<li>开启管道，键:位置，值：距离引擎的远近，越小越近，说句越先经过<br>-打开item_pipelines</li>
+<li>开启管道，键:位置，值：距离引擎的远近，越小越近，说句越先经过</li>
+<li>打开item_pipelines</li>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   &apos;spider_project.pipelines.SpiderProjectPipeline&apos;: 300,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
