@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>linux命令 | 雨夜的博客 | 非学无以致疑,非问无以广识!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,vim">
+    <meta name="description" content="more 文件名  查看更多信息 空格键    显示手册页的下一屏 enter 一次滚动手册页的一行 b    回滚一屏 h    列出所有功能键 /word    搜索word字符串 clear    清屏 ctrl + l    清屏 pwd    查看用户  文件操作 mkdir 文件夹名    创建文件夹 mkdir -p 文件夹名    递归创建文件夹 rmdir 文件名    只能删">
+<meta name="keywords" content="linux,vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux命令">
+<meta property="og:url" content="http://yoursite.com/2017/07/12/013linux命令/index.html">
+<meta property="og:site_name" content="雨夜的博客">
+<meta property="og:description" content="more 文件名  查看更多信息 空格键    显示手册页的下一屏 enter 一次滚动手册页的一行 b    回滚一屏 h    列出所有功能键 /word    搜索word字符串 clear    清屏 ctrl + l    清屏 pwd    查看用户  文件操作 mkdir 文件夹名    创建文件夹 mkdir -p 文件夹名    递归创建文件夹 rmdir 文件名    只能删">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-26T07:58:19.410Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux命令">
+<meta name="twitter:description" content="more 文件名  查看更多信息 空格键    显示手册页的下一屏 enter 一次滚动手册页的一行 b    回滚一屏 h    列出所有功能键 /word    搜索word字符串 clear    清屏 ctrl + l    清屏 pwd    查看用户  文件操作 mkdir 文件夹名    创建文件夹 mkdir -p 文件夹名    递归创建文件夹 rmdir 文件名    只能删">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuYe</h5>
+          <a href="mailto:31926990@qq.com" title="31926990@qq.com" class="mail">31926990@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">linux命令</div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">linux命令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-07-12T08:27:10.000Z" itemprop="datePublished" class="page-time">
+  2017-07-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/命令/">命令</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#文件操作"><span class="post-toc-number">1.</span> <span class="post-toc-text">文件操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ls命令"><span class="post-toc-number">2.</span> <span class="post-toc-text">ls命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#cat查看文件内容"><span class="post-toc-number">3.</span> <span class="post-toc-text">cat查看文件内容</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#重定向"><span class="post-toc-number">4.</span> <span class="post-toc-text">重定向</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通配符"><span class="post-toc-number">5.</span> <span class="post-toc-text">通配符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#find搜索"><span class="post-toc-number">6.</span> <span class="post-toc-text">find搜索</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#cp拷贝"><span class="post-toc-number">7.</span> <span class="post-toc-text">cp拷贝</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#mv移动"><span class="post-toc-number">8.</span> <span class="post-toc-text">mv移动</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#tar打包"><span class="post-toc-number">9.</span> <span class="post-toc-text">tar打包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gizp压缩"><span class="post-toc-number">10.</span> <span class="post-toc-text">gizp压缩</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#打包压缩一起"><span class="post-toc-number">11.</span> <span class="post-toc-text">打包压缩一起</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#bzip2"><span class="post-toc-number">12.</span> <span class="post-toc-text">bzip2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#zip"><span class="post-toc-number">13.</span> <span class="post-toc-text">zip</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#which查找命令在哪里"><span class="post-toc-number">14.</span> <span class="post-toc-text">which查找命令在哪里</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#用户操作"><span class="post-toc-number">15.</span> <span class="post-toc-text">用户操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#用户组的操作"><span class="post-toc-number">16.</span> <span class="post-toc-text">用户组的操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#给文件修改权限"><span class="post-toc-number">17.</span> <span class="post-toc-text">给文件修改权限</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#修改文件所有者"><span class="post-toc-number">18.</span> <span class="post-toc-text">修改文件所有者</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#修改文件所在组"><span class="post-toc-number">19.</span> <span class="post-toc-text">修改文件所在组</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#任务管理器"><span class="post-toc-number">20.</span> <span class="post-toc-text">任务管理器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#top动态显示进程"><span class="post-toc-number">21.</span> <span class="post-toc-text">top动态显示进程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#kill终止进程"><span class="post-toc-number">22.</span> <span class="post-toc-text">kill终止进程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#关机命令"><span class="post-toc-number">23.</span> <span class="post-toc-text">关机命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#df检测磁盘空间"><span class="post-toc-number">24.</span> <span class="post-toc-text">df检测磁盘空间</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#du检测目录所占磁盘空间"><span class="post-toc-number">25.</span> <span class="post-toc-text">du检测目录所占磁盘空间</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ifconfig查看网卡信息"><span class="post-toc-number">26.</span> <span class="post-toc-text">ifconfig查看网卡信息</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#apt-get安装软件"><span class="post-toc-number">27.</span> <span class="post-toc-text">apt-get安装软件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#vim"><span class="post-toc-number">28.</span> <span class="post-toc-text">vim</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#esc命令行模式"><span class="post-toc-number">29.</span> <span class="post-toc-text">esc命令行模式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#删除命令"><span class="post-toc-number">30.</span> <span class="post-toc-text">删除命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#命令模式直接执行重复上一次操作的命令"><span class="post-toc-number">31.</span> <span class="post-toc-text">命令模式直接执行重复上一次操作的命令</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#在末行模式下替换"><span class="post-toc-number">32.</span> <span class="post-toc-text">在末行模式下替换</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#末行模式"><span class="post-toc-number">33.</span> <span class="post-toc-text">末行模式</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-013linux命令" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">linux命令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-07-12 16:27:10" datetime="2017-07-12T08:27:10.000Z" itemprop="datePublished">2017-07-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/命令/">命令</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>more 文件名  查看更多信息</li>
+<li>空格键    显示手册页的下一屏</li>
+<li>enter 一次滚动手册页的一行</li>
+<li>b    回滚一屏</li>
+<li>h    列出所有功能键</li>
+<li>/word    搜索word字符串</li>
+<li>clear    清屏</li>
+<li>ctrl + l    清屏</li>
+<li>pwd    查看用户</li>
+</ul>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><ul>
+<li>mkdir 文件夹名    创建文件夹</li>
+<li>mkdir -p 文件夹名    递归创建文件夹</li>
+<li>rmdir 文件名    只能删除为空的文件夹</li>
+<li>rmdir -p 文件夹全名    递归删除文件夹</li>
+<li>rm -i 文件名    提示是否删除</li>
+<li>rm -f 文件名    强制删除，不提示</li>
+<li>rm -r 文件名    递归删除，文件夹下的所有文件统一删除</li>
+<li>rm -rf 文件名    全部删除，不提示</li>
+<li><p>rm -ivr 文件名    提示删除并打印删除结果 v删除结果</p>
+</li>
+<li><p>touch 文件名    创建文件</p>
+</li>
+<li><p>ln ./要连接的文件名    硬链接  复制出来一个新的</p>
+</li>
+<li><p>ln -s ./要链接的文件名    软连接</p>
+</li>
+<li><p>grep -n ‘^xx’ info.txt    显示行号打印以xx开头的数据</p>
+</li>
+<li>grep -n ‘t$’ info.txt    显示行号打印以t结尾的数据</li>
+<li>grep -n ‘.<em>1.</em>‘ info.txt  显示行里带有1的数据</li>
+<li>grep -i -n ‘^a’ info.txt  显示行号打印以xx开头的数据且不区分大小写</li>
+<li><p>-v 没有的全部打印出来  反向查找</p>
+</li>
+<li><p>history    查看历史命令</p>
+</li>
+</ul>
+<h1 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h1><ul>
+<li>ls    列表，查看当前目录下的所有文件</li>
+<li>ls -a    不隐藏以点开头的文件</li>
+<li>ls -a examples.desktop    列出这个文件夹下的所有文件</li>
+<li>ls -l    列出详细信息</li>
+<li>ls -al    参数可以加很多个</li>
+<li>ls -alh    以k为单位</li>
+<li>ls *.txt    列出以.txt结尾的文件</li>
+<li>ls d*    列出以d开头的</li>
+<li>ls -lh    人性化显示文件大小</li>
+<li>ls -Rlh    递归显示所有内容</li>
+<li>ls -R    递归显示</li>
+</ul>
+<p>#####管道就是把左边的内容给右边进行运算</p>
+<ul>
+<li>cat xx.txt | grep -n ‘/$’ 查找以/结尾的数据</li>
+</ul>
+<h1 id="cat查看文件内容"><a href="#cat查看文件内容" class="headerlink" title="cat查看文件内容"></a>cat查看文件内容</h1><ul>
+<li>cat 文件</li>
+<li>cat xx.txt    读取xx.txt中的内容</li>
+<li>cat 文件1 文件2 &gt; 文件3    把文件1和文件2重定向到文件3</li>
+</ul>
+<h1 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h1><ul>
+<li>结果 &gt; 保存的文件：ls &gt; aa.txt  把原先内容清空再添加</li>
+<li><p>结果 &gt;&gt; 保存的文件：ls &gt;&gt; aa.txt 在末尾追加</p>
+</li>
+<li><p>cd -    回到上一次目录，只能一次</p>
+</li>
+<li>pwd    显示当前工作路径</li>
+<li>tree 文件夹名    以树形结构显示文件夹下的所有文件</li>
+</ul>
+<h1 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h1><ul>
+<li><ul>
+<li>可以表示多个字符</li>
+</ul>
+</li>
+<li>？    可以表示一个字符</li>
+<li>[]    可以匹配字符组中的任意一个</li>
+<li>[a-z]    用-可以表示字符范围</li>
+</ul>
+<h1 id="find搜索"><a href="#find搜索" class="headerlink" title="find搜索"></a>find搜索</h1><ul>
+<li>find ./ -name a.txt    所当前目录下按名字搜索a.txt</li>
+<li>-name    按名字搜索</li>
+<li>-size    按大小搜索</li>
+<li>find ./ -name 1.txt    搜索当前目录下的1.txt</li>
+<li>find ./ -name ‘*.txt’    搜索目录下以.txt结尾的文件</li>
+<li>find ./ -name “[a-z]”    搜索当前目录下所有以小写字母开头的文件</li>
+<li>find ./ size 2M        查找当前目录下等于2M的文件</li>
+<li>find ./ size +2M    查找当前目录下大于2M的文件</li>
+<li>find ./ size -2M    查找当前目录下小于2M的文件</li>
+<li>find ./ size +4K -2M    查找当前目录下大于4K小于2M的文件</li>
+<li>find ./ -perm 0777    查找当前目录下权限为777的文件或目录</li>
+</ul>
+<h1 id="cp拷贝"><a href="#cp拷贝" class="headerlink" title="cp拷贝"></a>cp拷贝</h1><ul>
+<li>cp -a ./pycharm-2017.2.7 ./laowang    -a 拷贝所有</li>
+<li>cp -i ./pycharm-2017.2.7 /home/zhang    -i拷贝之前提示是否覆盖 -r递归复制 </li>
+<li>cp -r -a -i ./pycharm-2017.2.7 /home/zhang    -a -r递归复制</li>
+</ul>
+<h1 id="mv移动"><a href="#mv移动" class="headerlink" title="mv移动"></a>mv移动</h1><ul>
+<li>mv ./a ./b    移动并重命名</li>
+</ul>
+<h1 id="tar打包"><a href="#tar打包" class="headerlink" title="tar打包"></a>tar打包</h1><ul>
+<li>tar -cvf b.tar *.txt    把所有.txt文件打包，-v显示进度，-f指定名称</li>
+<li>tar -xvf b.tar        把b.tar拆包</li>
+</ul>
+<h1 id="gizp压缩"><a href="#gizp压缩" class="headerlink" title="gizp压缩"></a>gizp压缩</h1><ul>
+<li>gzip -r b.tar    压缩-r </li>
+<li>gzip -d b.tar.gz    解压缩-d</li>
+</ul>
+<h1 id="打包压缩一起"><a href="#打包压缩一起" class="headerlink" title="打包压缩一起"></a>打包压缩一起</h1><ul>
+<li>tar -zcvf b.tar.gz ./*.txt ./a    tar -zcvf压缩名字 需要压缩的文件</li>
+<li>tar -zxvf b.tar.gz    tar -zxvf 需要解压的包名，需要制定路径的话后面加-C 指定路径</li>
+</ul>
+<h1 id="bzip2"><a href="#bzip2" class="headerlink" title="bzip2"></a>bzip2</h1><ul>
+<li>压缩用法：tar -jcvf 压缩包包名 文件…(tar jcvf bk.tar.bz2 *.c)</li>
+<li>解压用法：tar -jxvf 压缩包包名 (tar jxvf bk.tar.bz2)</li>
+</ul>
+<h1 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h1><ul>
+<li>zip ./laowang ./*.txt ./a    zip 压缩名 需要压缩的文件</li>
+<li>unzip laowang.zip    unzip 需要解压的文件名</li>
+</ul>
+<h1 id="which查找命令在哪里"><a href="#which查找命令在哪里" class="headerlink" title="which查找命令在哪里"></a>which查找命令在哪里</h1><ul>
+<li><p>which python3    查看python3在哪里</p>
+</li>
+<li><p>whereis 文件名    这个文件在哪里</p>
+</li>
+</ul>
+<h1 id="用户操作"><a href="#用户操作" class="headerlink" title="用户操作"></a>用户操作</h1><ul>
+<li>whoami    查看当前用户</li>
+<li>cat /etc/passwd    查看用户所有信息</li>
+<li>who    查看谁在登陆</li>
+<li>sudo useradd -m laowang    创建老王用户 -m将当前的工作目录自动转换到切换后的用户主目录</li>
+<li>sudo uerdel laowang    删除老王用户</li>
+<li>sudo userdel -r laowang    删除关于老王的一切</li>
+<li>sudo passwd laowang    给老王设置密码</li>
+<li>su - laowang    切换到老王用户并且自动到家目录</li>
+<li>passwd    为自己修改密码不需要权限</li>
+<li>exit    退出当前用户</li>
+</ul>
+<h1 id="用户组的操作"><a href="#用户组的操作" class="headerlink" title="用户组的操作"></a>用户组的操作</h1><ul>
+<li>cat /etc/group    查看所有组</li>
+<li>groupmod    查看所有组</li>
+<li>sudo groupadd a1  添加组a1为组名</li>
+<li>sudo groupdel a1  删除组a1</li>
+<li>sudo groupmod -g 1002 laowang    把老王添加到1002组里1002为组编号 小写g修改 大写G添加  可以添加到多个组里边</li>
+<li>groups laowang    查看老王组里都有哪些用户</li>
+</ul>
+<h1 id="给文件修改权限"><a href="#给文件修改权限" class="headerlink" title="给文件修改权限"></a>给文件修改权限</h1><ul>
+<li>chmod u/g/o+/-/= rwx 文件名 u(user所有者也就是前三位)，g(group同组的中间三位)，o(outer其他人)，r(可读),w(可写),x(可执行)</li>
+<li>000 = — = 0</li>
+<li>001 = –x = 1</li>
+<li>010 = -w- = 2</li>
+<li>011 = -wx = 3</li>
+<li>100 = r– = 4</li>
+<li>101 = r-x = 5</li>
+<li>110 = rw- = 6</li>
+<li><p>111 = rwx = 7</p>
+</li>
+<li><p>which python3    自动搜索python3的路径</p>
+</li>
+</ul>
+<h1 id="修改文件所有者"><a href="#修改文件所有者" class="headerlink" title="修改文件所有者"></a>修改文件所有者</h1><ul>
+<li>sudo chown zhang 1.txt    把老王的1.txt改成zhang的</li>
+</ul>
+<h1 id="修改文件所在组"><a href="#修改文件所在组" class="headerlink" title="修改文件所在组"></a>修改文件所在组</h1><ul>
+<li>sudo chgrp zhang 1.txt    把老王的1.txt组改成zhang的</li>
+</ul>
+<p>#cla 查看日历</p>
+<ul>
+<li>显示时间格式（date ‘+%y,%m,%d,%H,%M,%S’）</li>
+</ul>
+<h1 id="任务管理器"><a href="#任务管理器" class="headerlink" title="任务管理器"></a>任务管理器</h1><ul>
+<li>ps查看进程信息(静态)</li>
+<li>ps -aux a：显示终端上所有进程，包括其他用户/u：显示进程的详细状态/x：显示没有控制终端的进程/w：是加宽，以便显示更多信息/r：只显示正在运行的进程</li>
+</ul>
+<h1 id="top动态显示进程"><a href="#top动态显示进程" class="headerlink" title="top动态显示进程"></a>top动态显示进程</h1><ul>
+<li>top -d 1    隔1秒刷新一次</li>
+<li>-m    根据内存使用量来排序</li>
+<li>-p    根据cpu占有率来排序</li>
+<li>-t    根据进程运行时间的长短来排序</li>
+<li>-u    根据后面输入的用户名来筛选进程</li>
+<li>-k    根据后面驶入的pid来杀死进程</li>
+<li>-q    退出</li>
+<li>-h    获取帮助</li>
+</ul>
+<h1 id="kill终止进程"><a href="#kill终止进程" class="headerlink" title="kill终止进程"></a>kill终止进程</h1><ul>
+<li>kill命令指定进程号的进程，需要配合 ps 使用</li>
+<li>sudo kill -9 PID 删不掉的线加sudo 在删不掉加-9（强制退出）在删不掉就。。。</li>
+</ul>
+<h1 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h1><ul>
+<li>reboot    重启操作系统</li>
+<li>shutdown -r now    重启系统，会给其他用户提示</li>
+<li>shutdown -h now 立刻关机</li>
+<li>shutdown -h 20:20    系统会在20:20关机</li>
+<li>shutdown -c    取消定时关机</li>
+<li>shutdown -h +10    十分钟后关机</li>
+<li>init 0    关机</li>
+<li>init 6    重启</li>
+</ul>
+<h1 id="df检测磁盘空间"><a href="#df检测磁盘空间" class="headerlink" title="df检测磁盘空间"></a>df检测磁盘空间</h1><ul>
+<li>df -m    以1024字节未单位显示    经常用这个 </li>
+<li>df -a    显示所有文件系统的磁盘使用情况</li>
+<li>df -t    显示各指定文件系统的磁盘空间使用情况</li>
+<li>df -T    显示文件系统</li>
+</ul>
+<h1 id="du检测目录所占磁盘空间"><a href="#du检测目录所占磁盘空间" class="headerlink" title="du检测目录所占磁盘空间"></a>du检测目录所占磁盘空间</h1><ul>
+<li>du -s    以KB显示 显示制定文件或目录中文件占用的数据块</li>
+<li>du -sh    以MB显示</li>
+<li>du -a    递归显示指定目录中个文件和子目录占用的数据块</li>
+<li>du -b    以字节显示磁盘占用情况</li>
+<li>du -i    计算所有文件大小，对硬链接计算多次</li>
+</ul>
+<h1 id="ifconfig查看网卡信息"><a href="#ifconfig查看网卡信息" class="headerlink" title="ifconfig查看网卡信息"></a>ifconfig查看网卡信息</h1><ul>
+<li>ping xxxxxx    测试网路是否通畅</li>
+</ul>
+<h1 id="apt-get安装软件"><a href="#apt-get安装软件" class="headerlink" title="apt-get安装软件"></a>apt-get安装软件</h1><ul>
+<li>apt update    更新软件  出错复制最后一行查询错误解决方案</li>
+<li>apt-cache search package 搜索软件包</li>
+<li>apt-cache show package  获取包的相关信息，如说明、大小、版本等</li>
+<li>apt-get install package 安装包</li>
+<li>apt-get install package –reinstall   重新安装包</li>
+<li>apt-get -f install   修复安装</li>
+<li>apt-get remove package 删除包</li>
+<li>apt-get remove package –purge 删除包，包括配置文件等</li>
+<li>apt-get update  更新源</li>
+<li>apt-get upgrade 更新已安装的包</li>
+<li>apt-get dist-upgrade 升级系统</li>
+<li>apt-cache depends package 了解使用该包依赖那些包</li>
+<li>apt-cache rdepends package 查看该包被哪些包依赖</li>
+<li>apt-get build-dep package 安装相关的编译环境</li>
+<li>apt-get source package  下载该包的源代码</li>
+<li>apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</li>
+<li>apt-get check 检查是否有损坏的依赖</li>
+</ul>
+<h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><ul>
+<li>ctrl+alt+f6 进入黑窗口</li>
+<li><p>ctrl+alt+f7 退出黑窗口</p>
+</li>
+<li><p>vim文本输入模式命令</p>
+</li>
+<li>vim 文件名    创建文件</li>
+<li>i    在光标左边插入</li>
+<li>I    在行首插入</li>
+<li>a    在光标右边插入</li>
+<li>A    在行尾插入</li>
+<li>o    向下新开一行</li>
+<li>O    向上新开一行</li>
+<li>c    修改命令</li>
+<li>r    取代命令</li>
+<li>s    替换命令</li>
+</ul>
+<h1 id="esc命令行模式"><a href="#esc命令行模式" class="headerlink" title="esc命令行模式"></a>esc命令行模式</h1><ul>
+<li>esc    切换模式 退出编辑模式或者末行模式</li>
+<li>u    撤销</li>
+<li>ctrl + r    反撤销</li>
+<li>h    左移光标</li>
+<li>j    下移光标</li>
+<li>k    上移光标</li>
+<li><p>l    右移光标</p>
+</li>
+<li><p>L    移动到最后一行行首</p>
+</li>
+<li>m    移动到中间行</li>
+<li>G    移动到指定行</li>
+<li>4G    移动到第4行</li>
+<li>w    向后移动一个字</li>
+<li>b    向前移动一个字</li>
+<li>{    按段上移</li>
+<li>}    按段下移</li>
+<li>d    向下翻滚半屏</li>
+<li>u    向上翻滚半屏</li>
+<li>ctrl + f    向下翻滚一屏</li>
+<li>ctrl + b    向上翻滚一屏</li>
+<li>gg    光标移动到文件开头</li>
+<li>G    光标移动到文件末尾</li>
+<li>shift + 6    光标到当行的开头</li>
+<li>shift + 4    光标到当行的末尾</li>
+</ul>
+<h1 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h1><ul>
+<li>x    删除当前光标后一个字符，相当于del</li>
+<li>X    删除当前光标后一个字符，相当于backspace</li>
+<li>dd    删除光标所在行</li>
+<li>2 dd    删除第2行</li>
+<li>d    删除光标后本行的所有内容。包括光标所在字符</li>
+<li>d0    删除光标前本所有内容，不包含光标所在字符</li>
+<li>dw    删除光标开始位置的字，包括光标所在字符</li>
+</ul>
+<h1 id="命令模式直接执行重复上一次操作的命令"><a href="#命令模式直接执行重复上一次操作的命令" class="headerlink" title="命令模式直接执行重复上一次操作的命令"></a>命令模式直接执行重复上一次操作的命令</h1><ul>
+<li><blockquote>
+<p>   文本行右移</p>
+</blockquote>
+</li>
+<li><p>&lt;    文本行左移</p>
+</li>
+<li><p>yy    复制当前行</p>
+</li>
+<li>n yy    复制n行</li>
+<li><p>p    光标在所在位置新开辟一行，粘贴</p>
+</li>
+<li><p>v    按字符移动，选中文本</p>
+</li>
+<li><p>V    按行移动，选中文本可是模式可以配合 d,y,&gt;&gt;,&lt;&lt;实现对文本块的删除，复制，左右移动</p>
+</li>
+<li><p>r    替换当前字符</p>
+</li>
+<li><p>R    替换当前行光标后的字符</p>
+</li>
+<li><p>/a    查找a</p>
+</li>
+<li>n    下一个</li>
+<li><p>N    上一个</p>
+</li>
+<li><p>set hls    打开高亮</p>
+</li>
+<li>set nohls    关闭高亮</li>
+</ul>
+<h1 id="在末行模式下替换"><a href="#在末行模式下替换" class="headerlink" title="在末行模式下替换"></a>在末行模式下替换</h1><ul>
+<li>%s/abc/123/g    把abc替换成123</li>
+<li>1, 10s/abc/123/g    将1-10行的abc替换成123</li>
+<li><h1 id="末行模式"><a href="#末行模式" class="headerlink" title="末行模式"></a>末行模式</h1></li>
+<li>shift + ：    进入末行模式</li>
+<li>w    存盘</li>
+<li>q！    不存盘，强制退出</li>
+<li>wp    存盘退出</li>
+<li>set nu    显示行号</li>
+<li>set nonu去掉行号</li>
+<li>set encoding    显示编码</li>
+<li><p>set encoding=utf-8    设置编码</p>
+</li>
+<li><p>ubuntu vim tab 4个空格</p>
+</li>
+<li>编辑文件<ul>
+<li><code>sudo vim /etc/vim/vimrc</code></li>
+</ul>
+</li>
+<li>在最后加上<pre><code>set ts=4
+set expandtab
+set autoindent
+</code></pre></li>
+<li>如果报错，将这句话换成 <ul>
+<li><code>%retab!</code></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/07/12/012git配置/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git命令</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "udyt7NgQnLJd4dzClQFJ1goE-gzGzoHsz",
+            appKey: "GXGnQuS9dJ9GydcPahcWNEER",
+            avatar: "mm",
+            placeholder: "意见及反馈!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "5"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~~~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>破山中,贼易;破心中,贼难。</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>YuYe &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '糟糕！网页崩溃了!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
