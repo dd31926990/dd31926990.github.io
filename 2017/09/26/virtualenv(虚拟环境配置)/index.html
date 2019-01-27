@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>virtualenv-虚拟环境配置 | 雨夜的博客 | 非学无以致疑,非问无以广识!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="virtualenv">
+    <meta name="description" content="虚拟环境常用命令 workon:                    列出虚拟环境列表 lsvirtualenv:            列出虚拟环境列表 mkvirtualenv:            新建虚拟环境 workon [虚拟环境名称]:        切换/进入虚拟环境 rmvirtualenv :             删除虚拟环境 deactivate:">
+<meta name="keywords" content="virtualenv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="virtualenv-虚拟环境配置">
+<meta property="og:url" content="http://yoursite.com/2017/09/26/virtualenv(虚拟环境配置)/index.html">
+<meta property="og:site_name" content="雨夜的博客">
+<meta property="og:description" content="虚拟环境常用命令 workon:                    列出虚拟环境列表 lsvirtualenv:            列出虚拟环境列表 mkvirtualenv:            新建虚拟环境 workon [虚拟环境名称]:        切换/进入虚拟环境 rmvirtualenv :             删除虚拟环境 deactivate:">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-27T13:11:43.279Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="virtualenv-虚拟环境配置">
+<meta name="twitter:description" content="虚拟环境常用命令 workon:                    列出虚拟环境列表 lsvirtualenv:            列出虚拟环境列表 mkvirtualenv:            新建虚拟环境 workon [虚拟环境名称]:        切换/进入虚拟环境 rmvirtualenv :             删除虚拟环境 deactivate:">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuYe</h5>
+          <a href="mailto:31926990@qq.com" title="31926990@qq.com" class="mail">31926990@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">virtualenv-虚拟环境配置</div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">virtualenv-虚拟环境配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-26T05:23:32.000Z" itemprop="datePublished" class="page-time">
+  2017-09-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虚拟环境常用命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">虚拟环境常用命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#此时virtualenvwrapper就可以使用了。"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">此时virtualenvwrapper就可以使用了。</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-virtualenv(虚拟环境配置)" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">virtualenv-虚拟环境配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-26 13:23:32" datetime="2017-09-26T05:23:32.000Z" itemprop="datePublished">2017-09-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="虚拟环境常用命令"><a href="#虚拟环境常用命令" class="headerlink" title="虚拟环境常用命令"></a>虚拟环境常用命令</h2><ul>
+<li>workon:                    列出虚拟环境列表</li>
+<li>lsvirtualenv:            列出虚拟环境列表</li>
+<li>mkvirtualenv:            新建虚拟环境</li>
+<li>workon [虚拟环境名称]:        切换/进入虚拟环境</li>
+<li>rmvirtualenv :             删除虚拟环境</li>
+<li>deactivate:             离开虚拟环境</li>
+</ul>
+<ol>
+<li>安装python虚拟环境<ul>
+<li><code>sudo apt-get install virtualenv</code></li>
+</ul>
+</li>
+<li>vrtaulenvwrapper是virtualenv的扩展包，用于更方便管理虚拟环境<ul>
+<li><code>sudo apt-get install virtualenvwrapper</code></li>
+</ul>
+</li>
+<li>创建目录用来存放虚拟环境<ul>
+<li><code>mkdir ~/.myvirtualenvs</code></li>
+</ul>
+</li>
+<li><p>添加path</p>
+<ul>
+<li><code>vim ~/.bashrc</code>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export WORKON_HOME=/home/zhang/.myvirtualenvs</span><br><span class="line">source /usr/share/virtualenvwrapper/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>运行： </p>
+<ul>
+<li><code>source ~/.bashrc</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="此时virtualenvwrapper就可以使用了。"><a href="#此时virtualenvwrapper就可以使用了。" class="headerlink" title="此时virtualenvwrapper就可以使用了。"></a>此时virtualenvwrapper就可以使用了。</h3><ol start="6">
+<li>进入本地虚拟环境的目录文件夹<ul>
+<li><code>cd .myvirtualenvs/</code></li>
+</ul>
+</li>
+<li>创建虚拟环境 根据需要选择3和2<ul>
+<li><code>mkvirtualenv -p /usr/bin/python3  virtualenv-django[虚拟环境名]</code></li>
+<li><code>mkvirtualenv -p /usr/bin/python  virtualenv-django</code></li>
+</ul>
+</li>
+<li>进入虚拟环境<ul>
+<li><code>workon virtualenv-django</code></li>
+</ul>
+</li>
+<li>查看虚拟环境中已经安装的包<ul>
+<li><code>pip list</code></li>
+<li><code>pip freeze</code></li>
+</ul>
+</li>
+<li>进入虚拟环境<ul>
+<li><code>workon virtualenv-django</code></li>
+</ul>
+</li>
+<li>安装django<ul>
+<li><code>pip install django==1.8.2</code></li>
+</ul>
+</li>
+<li>查看版本<br>进入python shell<ul>
+<li><code>import django</code></li>
+<li><code>django.get_version()</code></li>
+</ul>
+</li>
+<li>卸载python2.7<ul>
+<li><code>sudo apt remov python2.7</code></li>
+</ul>
+</li>
+<li>安装ipython<ul>
+<li><code>pip install ipython</code></li>
+</ul>
+</li>
+<li>安装pymysql<ul>
+<li><code>pip install pymysql</code></li>
+</ul>
+</li>
+<li><p>ubuntu 开启mysql日志记录</p>
+<ul>
+<li>找到mysql的配置文件<ul>
+<li><code>sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></li>
+</ul>
+</li>
+<li><p>将下面两行的#去掉</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#general_log_file = /var/log/mysql/mysql.log</span><br><span class="line">#general_log = 1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启mysql服务</p>
+<ul>
+<li><code>sudo service mysql restart</code></li>
+</ul>
+</li>
+<li>实时查看<ul>
+<li><code>tail -f /var/log/mysql/mysql.log</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+        </div>
+
+        
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualenv/">virtualenv</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/07/16/017redis数据库/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">redis数据库</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "udyt7NgQnLJd4dzClQFJ1goE-gzGzoHsz",
+            appKey: "GXGnQuS9dJ9GydcPahcWNEER",
+            avatar: "mm",
+            placeholder: "意见及反馈!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "5"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~~~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>破山中,贼易;破心中,贼难。</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>YuYe &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '糟糕！网页崩溃了!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
