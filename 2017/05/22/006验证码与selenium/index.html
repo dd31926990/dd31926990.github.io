@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="selenium">
-    <meta name="description" content="验证码的识别 url不变，验证码不变  请求验证码的地址，获得相应，识别   url不变，验证码会变  思路：对方服务器返回验证码的时候，会和每个用户的信息和验证码进行一个对应，之后，在用户发送post请求的时候，会对比post请求中法的验证码和当前用户真正的存储在服务器端的验证码是否相同  1.实例化session  2.使用seesion请求登录页面，获取验证码的地址 3.使用session请">
+    <meta name="description" content="验证码的识别 url不变，验证码不变  请求验证码的地址，获得相应，识别   url不变，验证码会变  思路：对方服务器返回验证码的时候，会和每个用户的信息和验证码进行一个对应，之后，在用户发送post请求的时候，会对比post请求中法的验证码和当前用户真正的存储在服务器端的验证码是否相同 1.实例化session 2.使用seesion请求登录页面，获取验证码的地址 3.使用session请求验">
 <meta name="keywords" content="selenium">
 <meta property="og:type" content="article">
 <meta property="og:title" content="验证码与selenium">
 <meta property="og:url" content="http://yoursite.com/2017/05/22/006验证码与selenium/index.html">
 <meta property="og:site_name" content="雨夜的博客">
-<meta property="og:description" content="验证码的识别 url不变，验证码不变  请求验证码的地址，获得相应，识别   url不变，验证码会变  思路：对方服务器返回验证码的时候，会和每个用户的信息和验证码进行一个对应，之后，在用户发送post请求的时候，会对比post请求中法的验证码和当前用户真正的存储在服务器端的验证码是否相同  1.实例化session  2.使用seesion请求登录页面，获取验证码的地址 3.使用session请">
+<meta property="og:description" content="验证码的识别 url不变，验证码不变  请求验证码的地址，获得相应，识别   url不变，验证码会变  思路：对方服务器返回验证码的时候，会和每个用户的信息和验证码进行一个对应，之后，在用户发送post请求的时候，会对比post请求中法的验证码和当前用户真正的存储在服务器端的验证码是否相同 1.实例化session 2.使用seesion请求登录页面，获取验证码的地址 3.使用session请求验">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-25T15:05:09.346Z">
+<meta property="og:updated_time" content="2019-01-28T14:11:55.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="验证码与selenium">
-<meta name="twitter:description" content="验证码的识别 url不变，验证码不变  请求验证码的地址，获得相应，识别   url不变，验证码会变  思路：对方服务器返回验证码的时候，会和每个用户的信息和验证码进行一个对应，之后，在用户发送post请求的时候，会对比post请求中法的验证码和当前用户真正的存储在服务器端的验证码是否相同  1.实例化session  2.使用seesion请求登录页面，获取验证码的地址 3.使用session请">
+<meta name="twitter:description" content="验证码的识别 url不变，验证码不变  请求验证码的地址，获得相应，识别   url不变，验证码会变  思路：对方服务器返回验证码的时候，会和每个用户的信息和验证码进行一个对应，之后，在用户发送post请求的时候，会对比post请求中法的验证码和当前用户真正的存储在服务器端的验证码是否相同 1.实例化session 2.使用seesion请求登录页面，获取验证码的地址 3.使用session请求验">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -144,8 +144,8 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#验证码的识别"><span class="post-toc-number">1.</span> <span class="post-toc-text">验证码的识别</span></a></li></ol><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selenium使用的注意点"><span class="post-toc-number"></span> <span class="post-toc-text">selenium使用的注意点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selenium-如何使用"><span class="post-toc-number"></span> <span class="post-toc-text">selenium 如何使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selenium如何定位，如何获取属性和文本"><span class="post-toc-number"></span> <span class="post-toc-text">selenium如何定位，如何获取属性和文本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selenium如何切换iframe中"><span class="post-toc-number"></span> <span class="post-toc-text">selenium如何切换iframe中</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#遇到验证码如何处理"><span class="post-toc-number"></span> <span class="post-toc-text">遇到验证码如何处理</span></a>
-        </li></nav>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#验证码的识别"><span class="post-toc-number">1.</span> <span class="post-toc-text">验证码的识别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selenium使用的注意点"><span class="post-toc-number">2.</span> <span class="post-toc-text">selenium使用的注意点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selenium-如何使用"><span class="post-toc-number">3.</span> <span class="post-toc-text">selenium 如何使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selenium如何定位，如何获取属性和文本"><span class="post-toc-number">4.</span> <span class="post-toc-text">selenium如何定位，如何获取属性和文本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#selenium如何切换iframe中"><span class="post-toc-number">5.</span> <span class="post-toc-text">selenium如何切换iframe中</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#遇到验证码如何处理"><span class="post-toc-number">6.</span> <span class="post-toc-text">遇到验证码如何处理</span></a></li></ol>
+        </nav>
     </aside>
 
 
@@ -169,7 +169,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="验证码的识别"><a href="#验证码的识别" class="headerlink" title="验证码的识别"></a>验证码的识别</h4><ul>
+            <h3 id="验证码的识别"><a href="#验证码的识别" class="headerlink" title="验证码的识别"></a>验证码的识别</h3><ul>
 <li><p>url不变，验证码不变</p>
 <ul>
 <li>请求验证码的地址，获得相应，识别</li>
@@ -177,13 +177,13 @@
 </li>
 <li><p>url不变，验证码会变</p>
 <ul>
-<li><p>思路：对方服务器返回验证码的时候，会和每个用户的信息和验证码进行一个对应，之后，在用户发送post请求的时候，会对比post请求中法的验证码和当前用户真正的存储在服务器端的验证码是否相同</p>
-</li>
-<li><p>1.实例化session</p>
-</li>
+<li>思路：对方服务器返回验证码的时候，会和每个用户的信息和验证码进行一个对应，之后，在用户发送post请求的时候，会对比post请求中法的验证码和当前用户真正的存储在服务器端的验证码是否相同<ul>
+<li>1.实例化session</li>
 <li>2.使用seesion请求登录页面，获取验证码的地址</li>
 <li>3.使用session请求验证码，识别</li>
-<li>4.使用session发送post请求’</li>
+<li>4.使用session发送post请求</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>使用selenium登录，遇到验证码</p>
@@ -199,21 +199,15 @@
 </li>
 </ul>
 <h3 id="selenium使用的注意点"><a href="#selenium使用的注意点" class="headerlink" title="selenium使用的注意点"></a>selenium使用的注意点</h3><ul>
-<li>获取文本和获取属性<ul>
+<li>获取文本和获取属性</li>
 <li>先定位到元素，然后调用<code>.text</code>或者<code>get_attribute</code>方法来去</li>
-</ul>
-</li>
 <li>selenium获取的页面数据是浏览器中elements的内容</li>
-<li>find_element和find_elements的区别<ul>
+<li>find_element和find_elements的区别</li>
 <li>find_element返回一个element，如果没有会报错</li>
 <li>find_elements返回一个列表，没有就是空列表</li>
 <li>在判断是否有下一页的时候，使用find_elements来根据结果的列表长度来判断</li>
-</ul>
-</li>
-<li><p>如果页面中含有iframe、frame，需要先调用driver.switch_to.frame的方法切换到frame中才能定位元素</p>
-</li>
-<li><p>selenium请求第一页的时候回等待页面加载完了之后在获取数据，但是在点击翻页之后，hi直接获取数据，此时可能会报错，因为数据还没有加载出来，需要time.sleep(3)</p>
-</li>
+<li>如果页面中含有iframe、frame，需要先调用driver.switch_to.frame的方法切换到frame中才能定位元素</li>
+<li>selenium请求第一页的时候回等待页面加载完了之后在获取数据，但是在点击翻页之后，hi直接获取数据，此时可能会报错，因为数据还没有加载出来，需要time.sleep(3)</li>
 <li>selenium中find_element_by_class_name智能接收一个class对应的一个值，不能传入多个</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">db.stu.aggregate(&#123;$group:&#123;_id:&quot;$name&quot;,counter:&#123;$sum:2&#125;&#125;&#125;)</span><br><span class="line"></span><br><span class="line">db.stu.aggregate(&#123;$group:&#123;_id:null,counter:&#123;$sum:1&#125;&#125;&#125;)</span><br><span class="line">db.stu.aggregate(&#123;$group:&#123;_id:&quot;$gender&quot;,name:&#123;$push:&quot;$name&quot;&#125;&#125;&#125;)</span><br><span class="line">db.stu.aggregate(&#123;$group:&#123;_id:&quot;$gender&quot;,name:&#123;$push:&quot;$$ROOT&quot;&#125;&#125;&#125;)</span><br><span class="line">db.tv3.aggregate(</span><br><span class="line">  &#123;$group:&#123;_id:&#123;&quot;country&quot;:&quot;$country&quot;,province:&quot;$province&quot;,userid:&quot;$userid&quot;&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;&#125;,count:&#123;$sum:1&#125;&#125;&#125;,</span><br><span class="line">  &#123;$project:&#123;country:&quot;$_id.country&quot;,province:&quot;$_id.province&quot;,count:&quot;$count&quot;,_id:0&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">db.stu.aggregate(</span><br><span class="line"></span><br><span class="line">  &#123;$match:&#123;age:&#123;$gt:20&#125;&#125;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:&quot;$gender&quot;,count:&#123;$sum:1&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">db.t2.aggregate(</span><br><span class="line">  &#123;$unwind:&quot;$size&quot;&#125;</span><br><span class="line">  )</span><br><span class="line">db.t3.aggregate(</span><br><span class="line">  &#123;$unwind:&quot;$tags&quot;&#125;,</span><br><span class="line">  &#123;$group:&#123;_id:null,count:&#123;$sum:1&#125;&#125;&#125;</span><br><span class="line">  )</span><br><span class="line">db.t3.aggregate(</span><br><span class="line">  &#123;$unwind:&#123;path:&quot;$size&quot;,preserveNullAndEmptyArrays:true&#125;&#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
