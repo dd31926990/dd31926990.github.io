@@ -111,6 +111,16 @@
         </a>
         <div class="flex-col header-title ellipsis">标签: json</div>
         
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="pyhton,spider,django,flask,mysql,redis,mongodb,scrapy-redis">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
         
     </div>
 </header>
@@ -130,7 +140,11 @@
             ">全部</a>
         
 
-            <a href="/tags/spider/" style="-webkit-order:18;order:18" class="tags-list-item waves-effect waves-button waves-light">spider</a>
+            <a href="/tags/spider/" style="-webkit-order:17;order:17" class="tags-list-item waves-effect waves-button waves-light">spider</a>
+
+        
+
+            <a href="/tags/requests/" style="-webkit-order:18;order:18" class="tags-list-item waves-effect waves-button waves-light">requests</a>
 
         
 
@@ -162,7 +176,7 @@
 
         
 
-            <a href="/tags/requests/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">requests</a>
+            <a href="/tags/mongodb/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">mongodb</a>
 
         
 
@@ -170,27 +184,27 @@
 
         
 
-            <a href="/tags/mongodb/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">mongodb</a>
+            <a href="/tags/sha1/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">sha1</a>
 
         
 
-            <a href="/tags/sha1/" style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">sha1</a>
+            <a href="/tags/filter/" style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">filter</a>
 
         
 
-            <a href="/tags/filter/" style="-webkit-order:7;order:7" class="tags-list-item waves-effect waves-button waves-light">filter</a>
+            <a href="/tags/pymongo/" style="-webkit-order:7;order:7" class="tags-list-item waves-effect waves-button waves-light">pymongo</a>
 
         
 
-            <a href="/tags/pymongo/" style="-webkit-order:8;order:8" class="tags-list-item waves-effect waves-button waves-light">pymongo</a>
+            <a href="/tags/scrapy/" style="-webkit-order:8;order:8" class="tags-list-item waves-effect waves-button waves-light">scrapy</a>
 
         
 
-            <a href="/tags/scrapy/" style="-webkit-order:9;order:9" class="tags-list-item waves-effect waves-button waves-light">scrapy</a>
+            <a href="/tags/mysql/" style="-webkit-order:9;order:9" class="tags-list-item waves-effect waves-button waves-light">mysql</a>
 
         
 
-            <a href="/tags/git/" style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">git</a>
+            <a href="/tags/pycharm/" style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">pycharm</a>
 
         
 
@@ -198,15 +212,15 @@
 
         
 
-            <a href="/tags/mysql/" style="-webkit-order:12;order:12" class="tags-list-item waves-effect waves-button waves-light">mysql</a>
+            <a href="/tags/git/" style="-webkit-order:12;order:12" class="tags-list-item waves-effect waves-button waves-light">git</a>
 
         
 
-            <a href="/tags/pycharm/" style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">pycharm</a>
+            <a href="/tags/linux/" style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">linux</a>
 
         
 
-            <a href="/tags/linux/" style="-webkit-order:14;order:14" class="tags-list-item waves-effect waves-button waves-light">linux</a>
+            <a href="/tags/virtualenv/" style="-webkit-order:14;order:14" class="tags-list-item waves-effect waves-button waves-light">virtualenv</a>
 
         
 
@@ -214,11 +228,7 @@
 
         
 
-            <a href="/tags/virtualenv/" style="-webkit-order:16;order:16" class="tags-list-item waves-effect waves-button waves-light">virtualenv</a>
-
-        
-
-            <a href="/tags/vim/" style="-webkit-order:17;order:17" class="tags-list-item waves-effect waves-button waves-light">vim</a>
+            <a href="/tags/vim/" style="-webkit-order:16;order:16" class="tags-list-item waves-effect waves-button waves-light">vim</a>
 
         
     </nav>
@@ -317,6 +327,26 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 </script>
 
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
