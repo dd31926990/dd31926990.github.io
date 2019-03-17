@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>利用hexo+github快速搭建个人博客 | 雨夜的博客 | 非学无以致疑,非问无以广识!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="hexo">
+    <meta name="description" content="如何开始搭建自己的技术博客？软件安装安装Nodejs 下载安装Nodejs 因为我是在windows下操作的所以下载的是windows的安装版 安装的过程非常简单, 直接下一步即可                                                                                                           安装G">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用hexo+github快速搭建个人博客">
+<meta property="og:url" content="http://yuye.work/2018/04/30/019利用hexo+github快速搭建个人博客/index.html">
+<meta property="og:site_name" content="雨夜的博客">
+<meta property="og:description" content="如何开始搭建自己的技术博客？软件安装安装Nodejs 下载安装Nodejs 因为我是在windows下操作的所以下载的是windows的安装版 安装的过程非常简单, 直接下一步即可                                                                                                           安装G">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/dd31926990/boke_images/blob/master/images/nodeJS.jpg?raw=true">
+<meta property="og:image" content="https://github.com/dd31926990/boke_images/blob/master/images/git.jpg?raw=true">
+<meta property="og:image" content="https://github.com/dd31926990/boke_images/blob/master/images/hexo.jpg?raw=true">
+<meta property="og:image" content="https://github.com/dd31926990/boke_images/blob/master/images/hexo1.jpg?raw=true">
+<meta property="og:image" content="https://github.com/dd31926990/boke_images/blob/master/images/hexo2.jpg?raw=true">
+<meta property="og:image" content="https://github.com/dd31926990/boke_images/blob/master/images/git%20(2).jpg?raw=true">
+<meta property="og:updated_time" content="2019-03-15T15:37:10.958Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用hexo+github快速搭建个人博客">
+<meta name="twitter:description" content="如何开始搭建自己的技术博客？软件安装安装Nodejs 下载安装Nodejs 因为我是在windows下操作的所以下载的是windows的安装版 安装的过程非常简单, 直接下一步即可                                                                                                           安装G">
+<meta name="twitter:image" content="https://github.com/dd31926990/boke_images/blob/master/images/nodeJS.jpg?raw=true">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuYe</h5>
+          <a href="mailto:31926990@qq.com" title="31926990@qq.com" class="mail">31926990@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                目录
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">利用hexo+github快速搭建个人博客</div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">利用hexo+github快速搭建个人博客</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-30T05:15:13.000Z" itemprop="datePublished" class="page-time">
+  2018-04-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何开始搭建自己的技术博客？"><span class="post-toc-number">1.</span> <span class="post-toc-text">如何开始搭建自己的技术博客？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#软件安装"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">软件安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#安装Nodejs-下载安装Nodejs-因为我是在windows下操作的所以下载的是windows的安装版-安装的过程非常简单-直接下一步即可"><span class="post-toc-number">1.1.0.1.</span> <span class="post-toc-text">安装Nodejs 下载安装Nodejs 因为我是在windows下操作的所以下载的是windows的安装版 安装的过程非常简单, 直接下一步即可</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装Git-下载安装Git-Git的安装也是直接下一步即可"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">安装Git 下载安装Git Git的安装也是直接下一步即可</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装Hexo-如果你已经安装了Nodejs和Git-接下来就可以使用命令来安装Hexo了-因为是使用命令在线安装的所以一定要有网络连接-打开CMD窗口输入："><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">安装Hexo 如果你已经安装了Nodejs和Git, 接下来就可以使用命令来安装Hexo了 因为是使用命令在线安装的所以一定要有网络连接 打开CMD窗口输入：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#初始化Hexo-安装Hexo之后打开一个文件夹-用来初始化Hexo-这个文件夹作为你的博客的主目录-然后使用CMD命令行进入到这个目录下执行初始化命令："><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">初始化Hexo 安装Hexo之后打开一个文件夹, 用来初始化Hexo, 这个文件夹作为你的博客的主目录 　然后使用CMD命令行进入到这个目录下执行初始化命令：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#接着执行命令"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">接着执行命令:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#运行Hexo-在前面步骤都准备完毕的时候执行命令hexo-s-g然后在浏览器中输入http-localhost-4000即可查看已安装默认主题的Hexo"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">运行Hexo 在前面步骤都准备完毕的时候执行命令hexo s -g然后在浏览器中输入http://localhost:4000即可查看已安装默认主题的Hexo</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更换默认主题"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">更换默认主题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装主题"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">安装主题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hexo默认的主题可能不是你想要的-那你就可以去Hexo官方收集的主题里选择自己喜欢的主题，也可以自己去GitHub上面自己找主题。-我使用的主题是next，在此感谢所有给Hexo提供主题的作者，给我们提供了又好看又好用的主题。"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Hexo默认的主题可能不是你想要的, 那你就可以去Hexo官方收集的主题里选择自己喜欢的主题，也可以自己去GitHub上面自己找主题。 我使用的主题是next，在此感谢所有给Hexo提供主题的作者，给我们提供了又好看又好用的主题。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#nexT主题github地址"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">nexT主题github地址</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#nexT"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">nexT</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#主题的配置做一个介绍-其他主题的配置也都大同小异-一般主题都会有对应的配置说明-你可以根据自己选择的主题去修改-你可以直接从GitHub上面下载然后解压到你Hexo目录的themes目录下面，也可以使用终端克隆，如果你熟悉-Git-建议你使用克隆的方式，之后的更新可以进入到主题文件夹下通过git-pull来快速更新，而不用再次下载压缩包替换-注意目录层级-如果解压后的主题有多级目录-建议把主题文件放到主题文件夹下面的根目录-也可以给主题文件夹重命名"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">主题的配置做一个介绍, 其他主题的配置也都大同小异, 一般主题都会有对应的配置说明, 你可以根据自己选择的主题去修改 你可以直接从GitHub上面下载然后解压到你Hexo目录的themes目录下面，也可以使用终端克隆，如果你熟悉 Git 建议你使用克隆的方式，之后的更新可以进入到主题文件夹下通过git pull来快速更新，而不用再次下载压缩包替换, 注意目录层级, 如果解压后的主题有多级目录, 建议把主题文件放到主题文件夹下面的根目录, 也可以给主题文件夹重命名</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#那要怎么从默认的主题切换到刚下载的这个主题呢-找到Hexo根目录下面的-config-yml-文件，将theme字段设置为你的主题名称，如theme-next并把之前的主题名使用-号注释掉-这个主题的名字一定要和你theme目录下的那个主题文件夹名称一致"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">那要怎么从默认的主题切换到刚下载的这个主题呢 找到Hexo根目录下面的 _config.yml 文件，将theme字段设置为你的主题名称，如theme: next并把之前的主题名使用#号注释掉, 这个主题的名字一定要和你theme目录下的那个主题文件夹名称一致</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-019利用hexo+github快速搭建个人博客" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">利用hexo+github快速搭建个人博客</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-30 13:15:13" datetime="2018-04-30T05:15:13.000Z" itemprop="datePublished">2018-04-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="如何开始搭建自己的技术博客？"><a href="#如何开始搭建自己的技术博客？" class="headerlink" title="如何开始搭建自己的技术博客？"></a>如何开始搭建自己的技术博客？</h2><h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><h5 id="安装Nodejs-下载安装Nodejs-因为我是在windows下操作的所以下载的是windows的安装版-安装的过程非常简单-直接下一步即可"><a href="#安装Nodejs-下载安装Nodejs-因为我是在windows下操作的所以下载的是windows的安装版-安装的过程非常简单-直接下一步即可" class="headerlink" title="安装Nodejs 下载安装Nodejs 因为我是在windows下操作的所以下载的是windows的安装版 安装的过程非常简单, 直接下一步即可"></a>安装Nodejs 下载安装Nodejs 因为我是在windows下操作的所以下载的是windows的安装版 安装的过程非常简单, 直接下一步即可</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/dd31926990/boke_images/blob/master/images/nodeJS.jpg?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="安装Git-下载安装Git-Git的安装也是直接下一步即可"><a href="#安装Git-下载安装Git-Git的安装也是直接下一步即可" class="headerlink" title="安装Git 下载安装Git Git的安装也是直接下一步即可"></a>安装Git 下载安装Git Git的安装也是直接下一步即可</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/dd31926990/boke_images/blob/master/images/git.jpg?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="安装Hexo-如果你已经安装了Nodejs和Git-接下来就可以使用命令来安装Hexo了-因为是使用命令在线安装的所以一定要有网络连接-打开CMD窗口输入："><a href="#安装Hexo-如果你已经安装了Nodejs和Git-接下来就可以使用命令来安装Hexo了-因为是使用命令在线安装的所以一定要有网络连接-打开CMD窗口输入：" class="headerlink" title="安装Hexo 如果你已经安装了Nodejs和Git, 接下来就可以使用命令来安装Hexo了 因为是使用命令在线安装的所以一定要有网络连接 打开CMD窗口输入："></a>安装Hexo 如果你已经安装了Nodejs和Git, 接下来就可以使用命令来安装Hexo了 因为是使用命令在线安装的所以一定要有网络连接 打开CMD窗口输入：</h4><ul>
+<li><code>npm install -g hexo-cli</code><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/dd31926990/boke_images/blob/master/images/hexo.jpg?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="初始化Hexo-安装Hexo之后打开一个文件夹-用来初始化Hexo-这个文件夹作为你的博客的主目录-然后使用CMD命令行进入到这个目录下执行初始化命令："><a href="#初始化Hexo-安装Hexo之后打开一个文件夹-用来初始化Hexo-这个文件夹作为你的博客的主目录-然后使用CMD命令行进入到这个目录下执行初始化命令：" class="headerlink" title="初始化Hexo 安装Hexo之后打开一个文件夹, 用来初始化Hexo, 这个文件夹作为你的博客的主目录 　然后使用CMD命令行进入到这个目录下执行初始化命令："></a>初始化Hexo 安装Hexo之后打开一个文件夹, 用来初始化Hexo, 这个文件夹作为你的博客的主目录 　然后使用CMD命令行进入到这个目录下执行初始化命令：</h4></li>
+<li><code>hexo init</code><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/dd31926990/boke_images/blob/master/images/hexo1.jpg?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="接着执行命令"><a href="#接着执行命令" class="headerlink" title="接着执行命令:"></a>接着执行命令:</h4></li>
+<li><code>npm install</code><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/dd31926990/boke_images/blob/master/images/hexo2.jpg?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="运行Hexo-在前面步骤都准备完毕的时候执行命令hexo-s-g然后在浏览器中输入http-localhost-4000即可查看已安装默认主题的Hexo"><a href="#运行Hexo-在前面步骤都准备完毕的时候执行命令hexo-s-g然后在浏览器中输入http-localhost-4000即可查看已安装默认主题的Hexo" class="headerlink" title="运行Hexo 在前面步骤都准备完毕的时候执行命令hexo s -g然后在浏览器中输入http://localhost:4000即可查看已安装默认主题的Hexo"></a>运行Hexo 在前面步骤都准备完毕的时候执行命令hexo s -g然后在浏览器中输入<a href="http://localhost:4000即可查看已安装默认主题的Hexo" target="_blank" rel="noopener">http://localhost:4000即可查看已安装默认主题的Hexo</a></h4><h3 id="更换默认主题"><a href="#更换默认主题" class="headerlink" title="更换默认主题"></a>更换默认主题</h3><h4 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h4><h4 id="Hexo默认的主题可能不是你想要的-那你就可以去Hexo官方收集的主题里选择自己喜欢的主题，也可以自己去GitHub上面自己找主题。-我使用的主题是next，在此感谢所有给Hexo提供主题的作者，给我们提供了又好看又好用的主题。"><a href="#Hexo默认的主题可能不是你想要的-那你就可以去Hexo官方收集的主题里选择自己喜欢的主题，也可以自己去GitHub上面自己找主题。-我使用的主题是next，在此感谢所有给Hexo提供主题的作者，给我们提供了又好看又好用的主题。" class="headerlink" title="Hexo默认的主题可能不是你想要的, 那你就可以去Hexo官方收集的主题里选择自己喜欢的主题，也可以自己去GitHub上面自己找主题。 我使用的主题是next，在此感谢所有给Hexo提供主题的作者，给我们提供了又好看又好用的主题。"></a>Hexo默认的主题可能不是你想要的, 那你就可以去Hexo官方收集的主题里选择自己喜欢的主题，也可以自己去GitHub上面自己找主题。 我使用的主题是next，在此感谢所有给Hexo提供主题的作者，给我们提供了又好看又好用的主题。</h4><h4 id="nexT主题github地址"><a href="#nexT主题github地址" class="headerlink" title="nexT主题github地址"></a>nexT主题github地址</h4></li>
+<li><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code><h4 id="nexT"><a href="#nexT" class="headerlink" title="nexT"></a>nexT</h4><h4 id="主题的配置做一个介绍-其他主题的配置也都大同小异-一般主题都会有对应的配置说明-你可以根据自己选择的主题去修改-你可以直接从GitHub上面下载然后解压到你Hexo目录的themes目录下面，也可以使用终端克隆，如果你熟悉-Git-建议你使用克隆的方式，之后的更新可以进入到主题文件夹下通过git-pull来快速更新，而不用再次下载压缩包替换-注意目录层级-如果解压后的主题有多级目录-建议把主题文件放到主题文件夹下面的根目录-也可以给主题文件夹重命名"><a href="#主题的配置做一个介绍-其他主题的配置也都大同小异-一般主题都会有对应的配置说明-你可以根据自己选择的主题去修改-你可以直接从GitHub上面下载然后解压到你Hexo目录的themes目录下面，也可以使用终端克隆，如果你熟悉-Git-建议你使用克隆的方式，之后的更新可以进入到主题文件夹下通过git-pull来快速更新，而不用再次下载压缩包替换-注意目录层级-如果解压后的主题有多级目录-建议把主题文件放到主题文件夹下面的根目录-也可以给主题文件夹重命名" class="headerlink" title="主题的配置做一个介绍, 其他主题的配置也都大同小异, 一般主题都会有对应的配置说明, 你可以根据自己选择的主题去修改 你可以直接从GitHub上面下载然后解压到你Hexo目录的themes目录下面，也可以使用终端克隆，如果你熟悉 Git 建议你使用克隆的方式，之后的更新可以进入到主题文件夹下通过git pull来快速更新，而不用再次下载压缩包替换, 注意目录层级, 如果解压后的主题有多级目录, 建议把主题文件放到主题文件夹下面的根目录, 也可以给主题文件夹重命名"></a>主题的配置做一个介绍, 其他主题的配置也都大同小异, 一般主题都会有对应的配置说明, 你可以根据自己选择的主题去修改 你可以直接从GitHub上面下载然后解压到你Hexo目录的themes目录下面，也可以使用终端克隆，如果你熟悉 Git 建议你使用克隆的方式，之后的更新可以进入到主题文件夹下通过git pull来快速更新，而不用再次下载压缩包替换, 注意目录层级, 如果解压后的主题有多级目录, 建议把主题文件放到主题文件夹下面的根目录, 也可以给主题文件夹重命名</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/dd31926990/boke_images/blob/master/images/git%20(2).jpg?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ul>
+<h4 id="那要怎么从默认的主题切换到刚下载的这个主题呢-找到Hexo根目录下面的-config-yml-文件，将theme字段设置为你的主题名称，如theme-next并把之前的主题名使用-号注释掉-这个主题的名字一定要和你theme目录下的那个主题文件夹名称一致"><a href="#那要怎么从默认的主题切换到刚下载的这个主题呢-找到Hexo根目录下面的-config-yml-文件，将theme字段设置为你的主题名称，如theme-next并把之前的主题名使用-号注释掉-这个主题的名字一定要和你theme目录下的那个主题文件夹名称一致" class="headerlink" title="那要怎么从默认的主题切换到刚下载的这个主题呢 找到Hexo根目录下面的 _config.yml 文件，将theme字段设置为你的主题名称，如theme: next并把之前的主题名使用#号注释掉, 这个主题的名字一定要和你theme目录下的那个主题文件夹名称一致"></a>那要怎么从默认的主题切换到刚下载的这个主题呢 找到Hexo根目录下面的 _config.yml 文件，将theme字段设置为你的主题名称，如theme: next并把之前的主题名使用#号注释掉, 这个主题的名字一定要和你theme目录下的那个主题文件夹名称一致</h4>
+        </div>
+
+        
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/26/018virtualenv(虚拟环境配置)/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">virtualenv(虚拟环境配置)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "udyt7NgQnLJd4dzClQFJ1goE-gzGzoHsz",
+            appKey: "GXGnQuS9dJ9GydcPahcWNEER",
+            avatar: "mm",
+            placeholder: "意见及反馈!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "5"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~~~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>破山中,贼易;破心中,贼难。</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>YuYe &copy; 2016 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '糟糕！网页崩溃了!';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
