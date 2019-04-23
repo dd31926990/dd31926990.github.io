@@ -162,13 +162,13 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        mongodb插入数据
-db.collecion.insert({}) 插入数据，_id存在就报错  
-db.collection.save({}) 插入数据，_id存在会更新
-
-mongodb的更新操作
-db.test1000.update({name:&quot;xiaowang&quot;},{name:&quot;xiaozhao&quot;})
-把name为xiaowang的数据替...
+        启动
+sudo /usr/local/mongodb/bin/mongo启动进程
+sudo /usr/local/mongodb/bin/mongod -f /etc/mongod.conf进入数据库
+sudo /usr/local/mongodb/bin/mongo数据库的操作1.查看所有数据库
+show dbs2.使用数据库-use 数据库名3.查看当前数据库
+db4.删除数据库
+db....
     
 
         <a href="/2017/06/09/007mongodb数据库/" class="post-more waves-effect waves-button">
